@@ -1,0 +1,6 @@
+[2019-4-16 14:57:53] layer "+¥23,445/前月比": Expected Either a default asset specification or a layer asset specification but "+" found.
+[2019-4-16 14:57:53] layer "+123,456/前月比": Expected Either a default asset specification or a layer asset specification but "+" found.
+[2019-4-16 14:57:53] layer "+1,345/前月比": Expected Either a default asset specification or a layer asset specification but "+" found.
+[2019-4-16 14:57:53] layer "+122": Expected Either a default asset specification or a layer asset specification but "+" found.
+[2019-4-16 14:57:53] layer "+822": Expected Either a default asset specification or a layer asset specification but "+" found.
+[2019-4-16 14:57:53] layer "+345/前月比": Expected Either a default asset specification or a layer asset specification but "+" found.

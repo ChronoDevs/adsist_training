@@ -1,0 +1,2032 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.pc{display:block;}
+.sp{display:none;}
+.se{display:none;}
+
+
+/* =======================================
+    共通CSS
+======================================= */
+
+/* ------各ブロック-------*/
+section, header, footer, main, .container {
+  width: 100%;
+}
+.container {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 155px 0 110px;
+	overflow: hidden;
+  position: relative;
+}
+
+/* ------タイトル-------*/
+.title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.section_title {
+  font-size: 45px;
+  font-weight: 400;
+  color: #1a1211;
+  text-align: center;
+  letter-spacing: 4px;
+}
+.scttl_eng {
+  font-size: 15px;
+  font-weight: 400;
+  color: #6c5f2a;
+  letter-spacing: 1.5px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.page_title {
+  margin-bottom: 2px;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: 5px;
+}
+.pgttl_eng {
+  font-size: 14px;
+  font-weight: 500;
+  color: #e8473e;
+  letter-spacing: 2px;
+}
+.dashboard_title {
+  margin-bottom: 24px;
+}
+.dashboard_title h2 {
+  padding-left: 14px;
+  border-left: 4px solid #e8473e;
+  line-height: 24px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* ------フォント-------*/
+.shsj {
+  font-family: "Source Han Serif JP", "Noto Serif CJK JP", "游明朝体", "Yu Mincho", YuMincho, serif;
+}
+.baskerville {
+  font-family: Baskerville, serif;
+}
+.arvo {
+  font-family: 'Arvo', serif;
+}
+.avenirnext {
+  font-family: "Avenir Next", sans-serif;
+}
+.futura {
+  font-family: Futura, sans-serif;
+}
+.noto {
+  font-family: "Noto Sans Japanese", "Avenir Next", "Yu Gothic Medium","游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+}
+.yumincho_36p {
+  font-family: "YuMincho +36p Kana", "游明朝体+36ポかな", "游明朝体", "YuMincho";
+}
+.tsukua {
+  font-family: 'TsukuARdGothic-Regular', sans-serif;
+}
+
+
+/* ------テキスト-------*/
+.redbig_message {
+  font-size: 20px;
+  color: #e8473e;
+}
+.highsmall_message {
+  line-height: 2.2;
+  font-size: 12px;
+}
+/* ------マージン-------*/
+.mb40{
+  margin-bottom: 40px!important
+}
+/* ------ボタン-------*/
+.btn {
+  display: block;
+  width: 190px;
+  height: 54px;
+  border-radius: 27px;
+  line-height: 54px;
+  color: white !important;
+  margin: 0 auto;
+  text-align: center;
+}
+.btn_wide{
+  width: 200px;
+  height: 44px;
+  line-height: 44px;
+}
+.btn_red {
+  background-color: #e8473e;
+}
+.btn_red:hover {
+  opacity: 1;
+  background-color: #ce3d35;
+}
+.btn_red_l {
+  background-color: #f08984;
+}
+.btn_red_l:hover {
+  opacity: 1;
+  background-color: #e26b64;
+}
+.btn_fb {
+  background-color: #3b5a97;
+}
+.btn_fb:hover {
+  opacity: 1;
+  background-color: #28447b;
+}
+.btn_tw {
+  background-color: #1ca1f1;
+}
+.btn_tw:hover {
+  opacity: 1;
+  background-color: #0f8ad4;
+}
+.btn_white {
+  background-color: #fff;
+  border: 1px solid #c1c1c1;
+  color: #595959 !important;
+}
+.btn_white:hover {
+  opacity: 1;
+  background-color: #e6e6e6;
+  border: 1px solid #e6e6e6;
+}
+.btn_gray {
+  background-color: #c1c1c1;
+}
+.btn_gray:hover {
+  opacity: 1;
+  background-color: #a7a7a7;
+}
+.btns.flex_box {
+  justify-content: center;
+}
+.btns .btn {
+  margin: 0 14px 20px !important;
+}
+
+.search_block {
+  position: relative;
+  width: 240px;
+}
+.search_block input{
+  position: relative;
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 22px;
+  background-color: #efefef;
+  padding: 1px 2em 3px;
+  line-height: 40px;
+}
+.search_block input::placeholder,
+input.input_text::placeholder{
+  color: #c1c1c1;
+}
+.search_block input:-ms-input-placeholder,
+input.input_text:-ms-input-placeholder{
+  color: #c1c1c1;
+}
+input.input_text {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  background-color: #fff;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.08);
+  padding: 15px 14px;
+}
+
+.container.list_head {
+  overflow: visible;
+}
+.search_block::after{
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 26px;
+  transform: translateY(-50%);
+  background-image: url(../img/icon_search.png);
+  background-size: cover;
+  width: 18px;
+  height: 19px;
+}
+.flex{
+  display: flex;
+  justify-content: space-between;
+}
+.select_block{
+  position: relative;
+}
+.sort_btn {
+  width: 110px;
+  height: 36px;
+  border-radius: 5px;
+  background-color: transparent;
+}
+.sort_btn::after {
+  display: inline-block;
+  content: "";
+  width: 10px;
+  height: 6px;
+  background-image: url(../img/icon_angle_down.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  bottom: 2px;
+  margin-left: 4px;
+}
+.sort_btn.open {
+  background-color: #e6e6e6;
+}
+.sort_btn.open::after {
+  background-image: url(../img/icon_angle_up.png);
+}
+.sort_list {
+  display: none;
+  position: absolute;
+  top: calc(100% + 15px);
+  right: 0;
+  width: 180px;
+  background-color: #fff;
+  z-index: 100;
+  box-shadow: 0 0 6px rgba(0,0,0,0.08);
+}
+.sort_list.open {
+  display: block;
+}
+.sort_list li {
+  width: 100%;
+}
+.sort_list button {
+  width: 100%;
+  padding: 10px 24px;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: justify;
+}
+.sort_list button:hover {
+  opacity: 1;
+  background-color: #f1f3f4;
+}
+.sort_list button.current {
+  background-color: #f1f3f4;
+}
+
+/* ------heightをwidthとの比で指定-------*/
+.calc_height_o {
+  position: relative;
+  /* width指定 */
+}
+.calc_height_o::before {
+  content:"";
+  display: block;
+  /* 高さ（padding-top）を比率で指定 */
+  /* padding-top: %; */
+}
+.calc_height_i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* ------画像を縦or横幅に合わせてトリミング-------*/
+.fitimg {
+  overflow: hidden;
+  position: relative;
+  /* width、heightを指定 */
+}
+.fitimg img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  /* 縦幅に合わせる場合は以下 */
+  /* width: auto;
+  height: 100%; */
+  /* 横幅に合わせる場合は以下 */
+  /* width: 100%;
+  height: auto; */
+}
+
+/* ------flex_box-------*/
+.flex_box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* ------エラー文-------*/
+.error_text {
+  display: none;
+  margin-top: 5px;
+  color: #e8473e;
+  text-align: justify;
+}
+.error_text.active {
+  display: block;
+}
+
+/* ------パーツ-------*/
+.white_cont {
+  background-color: white;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.08);
+}
+
+/* ------ヘッダー-------*/
+header {
+  width: 100%;
+  height: 76px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+header .container {
+  padding: 0;
+  height: 100%;
+  overflow: visible;
+  position: relative;
+}
+header .container.flex_box {
+  justify-content: space-between;
+  align-items: center;
+}
+.header_title img {
+  width: 158px;
+  height: auto;
+}
+.header_menu {
+  width: auto;
+  height: 100%;
+}
+.header_menu ul {
+  width: 100%;
+  height: 100%;
+}
+.header_menu ul.flex_box {
+  justify-content: flex-end;
+}
+.header_menu li {
+  width: auto;
+  height: 100%;
+}
+.header_menu li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: 26px center;
+  padding-left: 46px;
+  padding-right: 25px;
+  line-height: 76px;
+  text-align: center;
+  font-size: 13px;
+  color: #e8473e;
+}
+.hdmn_document a {
+  background-image: url(../img/icon_document.png);
+  background-size: 11px 15px;
+}
+.hdmn_login a {
+  background-image: url(../img/icon_person.png);
+  background-size: 12px 14px;
+}
+.hdmn_logout a {
+  background-image: url(../img/icon_logout_r.png);
+  background-size: 18px 14px;
+  background-position: 20px center !important;
+  padding-right: 18px !important;
+}
+.header_menu li a:hover {
+  opacity: 1;
+  background-color: #e8473e;
+  color: white;
+}
+.hdmn_document a:hover {
+  background-image: url(../img/icon_document_w.png);
+}
+.hdmn_login a:hover {
+  background-image: url(../img/icon_person_w.png);
+}
+.hdmn_logout a:hover {
+  background-image: url(../img/icon_logout_w.png);
+}
+
+/* ------フッター-------*/
+footer {
+  height: 58px;
+  background-color: #c1c1c1;
+}
+footer .container {
+  padding: 0;
+}
+footer p {
+  line-height: 58px !important;
+  text-align: center;
+  font-size: 12px;
+  color: #010101;
+}
+
+
+/* =======================================
+    TOPページ
+======================================= */
+
+/* ------セクション名-------*/
+
+/* ------セクション名-------*/
+
+/* ------セクション名-------*/
+
+/* ------セクション名-------*/
+
+
+/* =======================================
+    下層ページ
+======================================= */
+
+/* ================= 会員登録、ログイン周りページ共通 ================= */
+.main_circle .container {
+  padding: 186px 0 110px;
+}
+.main_circle .regist_circle {
+  width: 652px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.main_circle .regist_circle img {
+  width: 100%;
+  height: auto;
+}
+.white_box {
+  width: 506px;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+  padding: 60px 20px;
+  position: relative;
+}
+.regist_form {
+  width: 100%;
+}
+.regist_input {
+  width: 356px;
+}
+.regist_form input[type="text"],
+.regist_form input[type="email"],
+.regist_form input[type="password"] {
+  width: 100%;
+  height: 54px;
+  border-radius: 27px;
+  border: none;
+  background-color: #efefef;
+  background-repeat: no-repeat;
+  padding: 0 30px 0 60px;
+  font-size: 14px;
+}
+.regist_form input[type="email"] {
+  background-image: url(../img/icon_mail_g.png);
+  background-size: 15px 11px;
+  background-position: 31px center;
+}
+.regist_form input[type="text"].input_name {
+  background-image: url(../img/icon_person_g.png);
+  background-size: 15px 15px;
+  background-position: 31px center;
+}
+.regist_form input[type="text"].input_company {
+  background-image: url(../img/icon_company_g.png);
+  background-size: 13px 15px;
+  background-position: 32px center;
+}
+.regist_form input[type="password"] {
+  background-image: url(../img/icon_password_g.png);
+  background-size: 15px 15px;
+  background-position: 31px center;
+}
+.pass_rule {
+  padding-left: 20px;
+  margin-top: 5px;
+  text-align: left;
+  font-size: 10px;
+  color: #e8473e;
+}
+.regist_form input::placeholder {
+  font-size: 14px;
+  color: #c1c1c1;
+}
+.regist_form input[type="text"]:focus,
+.regist_form input[type="email"]:focus,
+.regist_form input[type="password"]:focus {
+  border: 2px solid #e8473e;
+  outline: 0;
+}
+.regist_form input[type="text"].error,
+.regist_form input[type="email"].error,
+.regist_form input[type="password"].error {
+  border: 2px solid #e8473e;
+  background-color: #fadad8;
+  padding: 0 30px;
+  background-image: none;
+}
+.regist_form input.error::placeholder {
+  color: #ef827c;
+}
+.regist_flow {
+  margin: 40px 0 60px;
+}
+.regist_flow.flex_box {
+  justify-content: center;
+}
+.rgflw_cont {
+  width: 110px;
+  text-align: center;
+  position: relative;
+}
+.rgflw_cont hr {
+  width: 100px;
+  height: 8px;
+  border: none;
+  background-color: #f6b5b2;
+  position: absolute;
+  top: 25px;
+  left: -40px;
+}
+.rgflw {
+  position: relative;
+}
+.rgflw_num {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+  background-color: #f6b5b2;
+  position: relative;
+  z-index: 10;
+  line-height: 58px;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+}
+.rgflw_text {
+  font-size: 11px;
+}
+.rgflw_cont.active hr {
+  background-color: #dadada;
+}
+.rgflw_cont.active .rgflw_num {
+  background-color: #e8473e;
+}
+.rgflw_cont.active .rgflw_num::before {
+  display: block;
+  content: "";
+  width: 69px;
+  height: 22px;
+  background-image: url(../img/now_text.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: -19px;
+  left: -4px;
+}
+.rgflw_cont.done hr {
+  background-color: #dadada;
+}
+.rgflw_cont.done .rgflw_num {
+  background-color: #dadada;
+}
+.rgflw_cont.done .rgflw_num::before {
+  display: block;
+  content: "";
+  width: 15px;
+  height: 11px;
+  background-image: url(../img/check_w.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.form_dl.flex_box {
+  width: 100%;
+}
+.form_dl dt, .form_dl dd {
+  margin-bottom: 20px;
+}
+.form_dl dt {
+  width: 367px;
+  padding-right: 16px;
+}
+.form_dl dt.flex_box {
+  justify-content: flex-end;
+  align-items: center;
+}
+.form_dl dt p {
+  line-height: 25px;
+  font-size: 16px;
+}
+.required {
+  display: inline-block;
+  width: 48px;
+  border-radius: 12.5px;
+  background-color: #e8473e;
+  margin-left: 15px;
+  text-align: center;
+  font-size: 12px;
+  color: white;
+}
+.form_dl dd {
+  width: calc(100% - 367px);
+}
+
+/* ------------------会員登録TOP、ログインTOP-------------------*/
+.regist_cont {
+  text-align: center;
+}
+.regist_cont .btn {
+  width: 310px;
+  margin: 16px auto;
+}
+.regist_cont .btn_white {
+  margin-bottom: 30px;
+}
+.regist_cont .btn .btnimg {
+  width: 16px;
+  height: auto;
+  position: relative;
+  margin-right: 16px;
+}
+.regist_cont .btn_red .btnimg {
+  top: -1px;
+}
+.regist_cont .btn_fb .btnimg {
+  top: -2px;
+}
+.regist_cont .btn_tw .btnimg {
+  font-size: 16px;
+  top: 0;
+  color: white;
+}
+.regist_cont .btn_white .btnimg {
+  top: -2px;
+}
+.regist_or {
+  color: #a7a7a7;
+  margin: 30px 0;
+}
+.red_ul_link {
+  border-bottom: 2px solid #e8473e;
+  padding-bottom: 3px;
+  color: #e8473e !important;
+}
+
+/* ------------------
+会員登録（メール送信）
+パスワードをお忘れの方へ（メール送信）
+パスワードをお忘れの方へ（再設定）
+-------------------*/
+.mail_form .regist_form {
+  margin: 40px 0 30px;
+}
+.mail_form .regist_input {
+  margin: 0 auto 19px;
+}
+.mail_form .btn {
+  width: 356px;
+  margin-top: 26px;
+}
+.mail_form > p {
+  line-height: 2.2;
+  font-size: 11px;
+}
+
+/* ------------------会員登録（メール送信）-------------------*/
+#page_regist_mail .mail_form > p {
+  margin-bottom: 90px;
+}
+
+/* ------------------会員登録（仮登録完了）-------------------*/
+#page_regist_mail_complete .redbig_message {
+  margin: 45px 0;
+}
+
+/* ------------------会員登録（登録情報入力）-------------------*/
+#page_regist_form .form_dl {
+  margin-bottom: 45px;
+}
+#page_regist_form .form_dl dt {
+  height: 54px;
+}
+
+/* ------------------会員登録（登録内容確認）-------------------*/
+#page_regist_confirm .regist_cont {
+  text-align: justify;
+}
+#page_regist_confirm form {
+  width: 626px;
+  margin: 0 auto;
+}
+#page_regist_confirm form > p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #e8473e;
+}
+#page_regist_confirm form dl {
+  width: 100%;
+  margin: 35px 0 55px;
+}
+#page_regist_confirm form dt,
+#page_regist_confirm form dd {
+  margin-bottom: 23px;
+}
+#page_regist_confirm form dt {
+  width: 170px;
+  font-weight: bold;
+}
+#page_regist_confirm form dd {
+  width: calc(100% - 170px);
+  word-break: break-all;
+}
+#page_regist_confirm form .btn {
+  width: 190px;
+}
+
+/* ------------------会員登録（登録完了）-------------------*/
+#page_regist_complete .rgstdn_message {
+  margin-bottom: 65px;
+}
+#page_regist_complete .redbig_message {
+  margin-bottom: 35px;
+}
+
+/* ------------------メールアドレスでログイン-------------------*/
+#page_login_mail .regist_input {
+  margin: 0 auto 22px;
+}
+#page_login_mail .mail_form .btn {
+  margin-top: 44px;
+}
+#page_login_mail .mail_form .regist_form {
+  margin: 40px 0 45px;
+}
+
+/* ------------------パスワードをお忘れの方へ（再設定完了）-------------------*/
+#page_reset_pass_complete .regist_cont p {
+  margin-top: 35px;
+}
+#page_reset_pass_complete .regist_cont .btn {
+  margin: 45px auto 16px;
+}
+
+/* ------------------よくある質問-------------------*/
+.faq_cont {
+  width: 680px;
+  margin: 55px auto 75px;
+}
+.faq-accordion {
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid #dadada;
+}
+.faq-accordion > div {
+  width: 100%;
+  height: auto;
+}
+.fqaccrdn-trigger {
+  transition: 0.4s ease-in-out;
+  padding: 18px 50px;
+  position: relative;
+  cursor: pointer;
+}
+.fqaccrdn-trigger::before,
+.fqaccrdn-trigger::after {
+  display: block;
+  content: "";
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+}
+.fqaccrdn-trigger::before {
+  transition: 0.4s ease-in-out;
+  width: 19px;
+  height: 19px;
+  background-image: url(../img/q_red.png);
+  top: calc(50% - 9.5px);
+  left: 17px;
+}
+.fqaccrdn-trigger::after {
+  width: 18px;
+  height: 18px;
+  background-image: url(../img/q_plus.png);
+  top: calc(50% - 9.5px);
+  right: 22px;
+}
+.fqaccrdn-trigger.open {
+  transition: 0.4s ease-in-out;
+  background-color: #e8473e;
+  color: white;
+}
+.fqaccrdn-trigger.open::before {
+  transition: 0.4s ease-in-out;
+  background-image: url(../img/q_white.png);
+}
+.fqaccrdn-trigger.open::after {
+  background-image: url(../img/q_minus.png);
+  top: calc(50% - 2px);
+}
+.fqaccrdn-target {
+  transition: 0.4s ease-in-out;
+  overflow: hidden;
+}
+.fqaccrdn-target > div {
+  padding: 23px;
+}
+.faq_bottom p {
+  margin-bottom: 17px;
+  text-align: center;
+  font-size: 12px;
+}
+
+/* ------------------お問い合わせ、資料請求-------------------*/
+.cntctfrm_top {
+  text-align: center;
+}
+.form {
+  margin-top: 45px;
+}
+.form .form_dl {
+  margin: 40px 0;
+}
+.form .form_dl dt {
+  width: 385px;
+  height: 52px;
+  padding-right: 21px;
+}
+.form .form_dl dd {
+  width: calc(100% - 385px);
+}
+.form .form_dl dt p {
+  font-size: 14px;
+  font-weight: bold;
+}
+.form .required {
+  margin-left: 30px;
+  font-weight: 400;
+}
+.frmdd_inner {
+  width: 421px;
+}
+.frmdd_inner.cntct_cont {
+  height: 156px;
+}
+.form textarea,
+.form input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 6px;
+  border: none;
+  background-color: white;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
+.form textarea {
+  height: 100%;
+  resize: none;
+}
+.form input {
+  height: 52px;
+}
+.form textarea::placeholder,
+.form input::placeholder {
+  color: #9a9a9a;
+}
+.form textarea:focus,
+.form input:focus {
+  box-shadow: 0 0 6px rgba(232, 71, 62, 0.72);
+  outline: 0;
+}
+.form textarea.error,
+.form input.error {
+  box-shadow: 0 0 6px rgba(232, 71, 62, 0.72);
+  background-color: #fadad8;
+}
+.form textarea.error::placeholder,
+.form input.error::placeholder {
+  color: #e8473e;
+}
+
+/* ------------------お問い合わせ確認、資料請求確認-------------------*/
+.form_confirm {
+  margin-top: 40px;
+}
+.form_confirm > p {
+  text-align: center;
+  font-size: 17px;
+}
+.form_confirm table {
+  width: 720px;
+  margin: 20px auto 90px;
+}
+.form_confirm tr {
+  border-bottom: 1px solid #dadada;
+}
+.form_confirm th,
+.form_confirm td {
+  padding: 30px 0;
+  text-align: left;
+}
+.form_confirm th {
+  width: 220px;
+}
+.form_confirm td {
+  width: calc(100% - 220px);
+  word-break: break-all;
+}
+
+/* ------------------お問い合わせ完了、資料請求完了-------------------*/
+.complete_cont {
+  margin-top: 45px;
+  text-align: center;
+}
+.complete_cont .redbig_message {
+  margin-bottom: 45px;
+}
+.complete_cont .btn {
+  margin-top: 75px;
+}
+
+/* ------------------資料請求-------------------*/
+.input_budget input {
+  width: 250px;
+  margin-right: 10px;
+}
+
+/* ================= ダッシュボード関連ページ共通 ================= */
+
+/* ヘッダー */
+.header_dashboard {
+  position: static;
+}
+.header_dashboard .header_title {
+  width: 230px;
+  height: 100%;
+  padding: 25px 0 0 34px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.28);
+  background-color: #f08680;
+}
+.header_dashboard .header_title img {
+  width: 117px;
+}
+
+.dashboard_cont {
+  padding: 0 !important;
+}
+
+/* サイドバー */
+#sidebar {
+  width: 230px;
+  height: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.28);
+  background-color: #f08680;
+}
+#sidebar ul {
+  width: 100%;
+}
+#sidebar li {
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+}
+#sidebar li a {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding-left: 59px;
+  background-color: #f08680;
+  border-left: 6px solid #f08680;
+  line-height: 50px;
+  font-size: 15px;
+  color: white;
+}
+#sidebar li a:hover {
+  opacity: 1;
+  background-color: rgba(232,71,62,0.86);
+  border-left: 6px solid #e8473e;
+}
+#sidebar li.current a {
+  background-color: rgba(232,71,62,0.86);
+  border-left: 6px solid #e8473e;
+}
+#sidebar li img {
+  position: absolute;
+  height: auto;
+}
+.sdlink_dashboard img {
+  width: 20px;
+  top: 17px;
+  left: 27px;
+}
+.sdlink_budgetmanage img {
+  width: 12px;
+  top: 17px;
+  left: 31px;
+}
+.sdlink_admanage img {
+  width: 21px;
+  top: 17px;
+  left: 26px;
+}
+.sdlink_information img {
+  width: 22px;
+  top: 16px;
+  left: 27px;
+}
+.sdlink_contact img {
+  width: 17px;
+  top: 19px;
+  left: 28px;
+}
+
+/* チャットボタン */
+.chat_btn {
+  width: 72px;
+  height: 72px;
+  position: fixed;
+  right: 60px;
+  bottom: 60px;
+  z-index: 2000;
+}
+.chat_btn button {
+  background: none;
+}
+.chat_btn button img {
+  width: 100%;
+}
+
+/* チャットボット */
+.chatbot {
+  width: 400px;
+  position: fixed;
+  right: 60px;
+  bottom: 60px;
+  z-index: 3000;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.08);
+}
+.chat_header {
+  width: 100%;
+  height: 40px;
+  padding: 0 17px;
+  background-color: #e8473e;
+  border-radius: 10px 10px 0 0;
+}
+.chat_header.flex_box {
+  justify-content: space-between;
+  align-items: center;
+}
+.chat_header p {
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+}
+.chat_btns {
+  width: 47px;
+}
+.chat_btns.flex_box {
+  justify-content: space-between;
+  align-items: center;
+}
+.chat_btns button {
+  background-color: transparent;
+}
+.chat_minimize img {
+  width: 14px;
+  height: auto;
+}
+.chat_close img {
+  width: 15px;
+  height: auto;
+}
+.chat_main {
+  width: 100%;
+  max-height: 400px;
+  overflow-y: scroll;
+  background-color: #fff;
+}
+.chat_cont {
+  width: 100%;
+  padding: 25px 30px 25px 35px;
+}
+.chat_balloon, .chat_radio {
+  width: 100%;
+  display: flex;
+  margin-bottom: 25px;
+}
+.chat_balloon.balloon_bot {
+  justify-content: flex-start;
+}
+.chat_balloon.balloon_user, .chat_radio {
+  justify-content: flex-end;
+}
+.chat_balloon p, .chat_radio_label p {
+  width: 270px;
+  padding: 15px;
+  border-radius: 10px;
+  position: relative;
+}
+.balloon_bot p {
+  background-color: #efefef;
+}
+.balloon_user p, .chat_radio_label p {
+  background-color: #f08680;
+  color: #fff;
+}
+.chat_balloon p::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  margin-top: -7px;
+  border: 7px solid transparent;
+}
+.balloon_bot p::before {
+  left: -17px;
+  border-right: 10px solid #efefef;
+}
+.balloon_user p::before {
+  left: 100%;
+  border-left: 10px solid #f08680;
+}
+.chat_radio_ttl {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.chat_radio_label input {
+  display: none;
+}
+.chat_radio_label p {
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding: 15px 30px 15px 15px;
+  cursor: pointer;
+}
+.chat_radio_label p:hover {
+  transition: .2s;
+  opacity: .7;
+}
+.chat_radio_label p img {
+  width: 8px;
+  height: auto;
+  position: absolute;
+  top: calc(50% - 6px);
+  right: 15px;
+}
+
+.chat_footer {
+  width: 100%;
+  height: 51px;
+}
+.chat_send {
+  width: 88px;
+  height: 100%;
+  background-color: #e8473e;
+  color: #fff;
+  font-weight: bold;
+}
+.chat_send:hover {
+  opacity: 1;
+  background-color: #ce3d35;
+}
+.chat_input {
+  width: calc(100% - 88px);
+  height: 100%;
+  resize: none;
+  padding: 13px 17px;
+  border: none;
+  border-top: 1px solid #dadada;
+  font-size: 14px;
+}
+.chat_input::placeholder {
+  color: #c1c1c1;
+}
+
+/* メインコンテンツ */
+#maincont {
+  width: calc(100% - 230px);
+  padding: 25px 18px 52px;
+}
+#maincont > .container {
+  width: 100%;
+  min-width: 100%;
+  padding: 0 0 52px;
+  overflow: visible;
+}
+#maincont .container {
+  width: 100%;
+}
+
+/* ------------------ダッシュボードトップ-------------------*/
+.dashboard_title h3 {
+  width: 100%;
+  margin-top: 30px;
+  border-bottom: 2px solid #e8473e;
+}
+.dashboard_title h3 span {
+  display: inline-block;
+  padding: 10px 18px;
+  background-color: #e8473e;
+  border-radius: 5px 5px 0 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+}
+.brand_btns {
+  width: 100%;
+  margin-bottom: 6px;
+}
+.brand_btns button {
+  display: inline-block;
+  padding: 7px 28px;
+  margin: 0 18px 18px 0;
+  border-radius: 18px;
+  border: 1px solid #a7a7a7;
+  background-color: transparent;
+  font-size: 12px;
+  color: #a7a7a7;
+}
+.brand_btns button.current {
+  border: 1px solid #f6ad48;
+  background-color: #f6ad48;
+  color: white;
+}
+.results {
+  width: 100%;
+  margin-bottom: 28px;
+}
+.results ul, .budget_status ul {
+  width: 100%;
+}
+.results li,
+.budget_status li {
+  text-align: center;
+  padding: 20px 5px 25px;
+  position: relative;
+}
+.results li {
+  width: 25%;
+}
+.results li .result::before,
+.budget_status li .result::before {
+  display: block;
+  content: "";
+  width: 1px;
+  background-color: #eeeeee;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto 0;
+}
+.results li .result::before {
+  height: 60%;
+}
+.results li:last-of-type .result::before,
+.budget_status li:last-of-type .result::before {
+  display: none;
+}
+.result h4 {
+  margin-bottom: 5px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #f6ad48;
+}
+.result_amount p {
+  letter-spacing: 1px;
+  font-size: 28px;
+  font-weight: 500;
+}
+.result_amount p span {
+  font-size: 20px;
+}
+.mom.flex_box {
+  justify-content: center;
+  align-items: center;
+}
+.mom.flex_box p,
+.mom.flex_box button {
+  margin-bottom: 7px;
+}
+.mom.flex_box p {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+}
+.mom.flex_box button {
+  width: 25px;
+  height: 25px;
+  margin-left: 8px;
+  background-color: transparent;
+  background-image: url(../img/icon_help_w.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.mom.flex_box button.open {
+  background-image: url(../img/icon_help_g.png);
+}
+.helpballoon_cont {
+  position: relative;
+}
+.helpballoon {
+  display: none;
+  position: absolute;
+  top: calc(100% + 22px);
+  width: 170px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #5bacd6;
+  z-index: 500;
+}
+.helpballoon.open {
+  display: block;
+}
+.helpballoon:before {
+  content: "";
+  position: absolute;
+  top: -28px;
+  border: 10px solid transparent;
+  border-bottom: 18px solid #5bacd6;
+}
+.hlpblln_1 {
+  left: -20px;
+}
+.hlpblln_1:before {
+  left: 30px;
+}
+.hlpblln_2 {
+  left: -20px;
+}
+.hlpblln_2:before {
+  left: 30px;
+}
+.hlpblln_3 {
+  right: -30px;
+}
+.hlpblln_3:before {
+  right: 33px;
+}
+.helpballoon p {
+  text-align: justify;
+  font-size: 10px !important;
+  font-weight: 500;
+  color: #fff;
+}
+.unit_cost.flex_box {
+  justify-content: center;
+  align-items: center;
+}
+.unit_cost p {
+  display: inline-block;
+  margin-bottom: 2px;
+  font-size: 10px;
+  font-weight: 500;
+}
+.untcst_gap {
+  margin-left: 6px;
+}
+.untcst_gap img {
+  width: 9px;
+  height: auto;
+  margin-right: 2px;
+  position: relative;
+  bottom: 1px;
+}
+.result_graph {
+  width: 100%;
+  padding: 20px 10px;
+  margin-bottom: 28px;
+}
+#myChart {
+  width: 100% !important;
+}
+
+
+.budget_status {
+  display: inline-block;
+  margin-bottom: 28px;
+}
+.budget_status li .result::before {
+  height: 42%;
+}
+.budget_status li {
+  padding: 20px 26px;
+}
+.done_ratio {
+  margin-left: 5px;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+}
+.new_notice {
+  width: 100%;
+  padding-bottom: 22px;
+}
+.new_notice h4 {
+  padding: 15px 23px;
+  border-bottom: 2px solid #eeeeee;
+  font-size: 15px;
+  font-weight: bold;
+}
+.new_notice dl {
+  width: 670px;
+  margin: 0 auto;
+  padding-top: 22px;
+}
+.new_notice dt,
+.new_notice dd {
+  width: 100%;
+}
+.new_notice dt {
+  margin-bottom: 5px;
+  line-height: 17px;
+  font-size: 12px;
+  color: #a7a7a7;
+}
+.new_notice dt span {
+  display: inline-block;
+  width: 42px;
+  background-color: #e8473e;
+  margin-left: 10px;
+  text-align: center;
+  font-size: 9px;
+  color: white;
+}
+.new_notice dd {
+  padding-bottom: 20px;
+  border-bottom: 2px solid #eeeeee;
+  margin-bottom: 22px;
+}
+.new_notice dd a {
+  color: black;
+}
+.new_notice .btn {
+  width: 150px;
+  height: 36px;
+  line-height: 36px;
+  font-size: 12px;
+}
+.table_head {
+  border-bottom: 1px solid #dadada;
+  padding: 0 0 20px;
+}
+.table_head .col{
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+.item_block{
+  align-items: center;
+  border-bottom: 1px solid #dadada;
+  padding: 15px 0;
+}
+.news_block{
+  border-bottom: 1px solid #dadada;
+  padding: 18px 20px 15px;
+}
+.news_block.flex{
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.news_block span{
+  display: inline-block;
+  width: 25%;
+  font-size: 12px;
+  color: #a7a7a7;
+}
+.news_block span.new::after{
+  content: 'NEW';
+  display: inline-block;
+  width: 42px;
+  background-color: #e8473e;
+  margin-left: 10px;
+  text-align: center;
+  font-size: 9px;
+  color: white;
+}
+.news_block a {
+  width: 75%;
+}
+.table_head .col,
+.item_block .col{
+  width: 20%;
+}
+.table_head .col,
+.item_block .col{
+  text-align: center;
+}
+.item_block .btn{
+  width: 128px;
+  height: 36px;
+  font-size: 12px;
+  line-height: 36px;
+}
+#page_dashboard .container{
+  padding: 0;
+}
+#page_dashboard.under .content_block{
+  background-color: #fff;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.08);
+  margin: 15px 0 0;
+  padding: 20px;
+}
+#page_dashboard.under .dashboard_title h2{
+  margin-bottom: 55px;
+}
+#page_dashboard.under .content_block.none_bg{
+  background-color: transparent;
+  box-shadow: none;
+  padding: 0 20px;
+}
+#page_dashboard h3.content_ttl{
+  margin-bottom: 35px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #e8473e;
+}
+#page_dashboard.account .item_block{
+  position: relative;
+  padding: 35px 0 30px;
+}
+#page_dashboard.account dl{
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+}
+#page_dashboard.account dt{
+  position: relative;
+  width: 250px;
+  font-weight: 600;
+}
+#page_dashboard.account .required{
+  width: 46px;
+  line-height: 25px;
+  position: absolute;
+  right: 20px;
+  margin-left: 0;
+  font-weight: 200;
+}
+#page_dashboard.account dd{
+  width: calc(100% - 250px);
+  word-break: break-all;
+}
+#page_dashboard.account dd input::placeholder {
+  color: #9a9a9a;
+}
+#page_dashboard.account dd input:focus {
+  box-shadow: 0 0 6px rgba(232, 71, 62, 0.72);
+  outline: none;
+}
+#page_dashboard.account dd input.error {
+  box-shadow: 0 0 6px rgba(232, 71, 62, 0.72);
+  background-color: #fadad8;
+}
+#page_dashboard.account dd input.error::placeholder {
+  color: #e8473e;
+}
+#page_dashboard.account .item_block .btn_more{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+#page_dashboard.account .item_block .ateniton{
+  display: block;
+  font-size: 10px;
+  font-weight: 400;
+  color: #e8473e;
+}
+span.sp{
+  display: none
+}
+.btn_area {
+  margin-top: 54px;
+  text-align: center;
+}
+.btn_area a.btn,
+.btn_area button.btn{
+  display: inline-block;
+  margin: 0 12px;
+}
+
+/* パスワード変更 */
+.change_password .redbig_message {
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+#page_dashboard.account .change_password form {
+  width: 580px;
+}
+#page_dashboard.account .change_password dl {
+  width: 100%;
+}
+#page_dashboard.account .change_password dt {
+  width: 210px;
+}
+#page_dashboard.account .change_password dd {
+  width: calc(100% - 210px);
+  position: relative;
+}
+#page_dashboard.account .change_password dd input {
+  font-size: 12px;
+}
+.newpass_input {
+  padding: 15px 45px 15px 14px !important;
+}
+.seepass_btn {
+  width: 24px;
+  height: 16px;
+  position: absolute;
+  top: calc(50% - 8px);
+  left: 330px;
+  background-color: transparent;
+}
+.seepass_btn img {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* ------------------広告運用-------------------*/
+.operation_cont .white_cont {
+  padding: 22px 30px 5px;
+  margin-bottom: 28px;
+}
+.ad_info dl {
+  width: 100%;
+}
+.ad_info dt, .ad_info dd {
+  margin-bottom: 20px;
+}
+.ad_info dt {
+  width: 110px;
+  font-weight: bold;
+}
+.ad_info dd {
+  width: calc(100% - 110px);
+  word-break: break-all;
+}
+.select_fbpic h3,
+.set_text h3,
+.trimming h3 {
+  margin-bottom: 25px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.slct_fbpic_cont {
+  width: 570px;
+}
+.swiper-container {
+  width: 100%;
+  margin: 0 !important;
+  padding-bottom: 47px !important;
+}
+.swiper-slide .fitimg {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+.swiper-slide input[type="radio"] {
+  display: none;
+}
+.swiper-slide input[type="radio"]:checked + .fitimg::before {
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+  border: 4px solid #f1f3f4;
+  opacity: .6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+/* .swiper-slide img {
+  width: 100%;
+  height: 100%;
+} */
+.swiper-slide p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  color: #fff;
+  z-index: 30;
+}
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+  background-image: none !important;
+  left: 0 !important;
+}
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+  background-image: none !important;
+  right: 0 !important;
+}
+.swiper-button-next, .swiper-button-prev {
+  transition: .2s;
+  width: 123px !important;
+  line-height: 38px !important;
+  height: auto !important;
+  text-align: center;
+  border-radius: 5px;
+  top: auto !important;
+  bottom: 0;
+  font-weight: bold;
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  transition: .2s;
+  background-color: #f1f3f4;
+}
+.swiper-button-next img,
+.swiper-button-prev img {
+  width: 6px;
+  height: auto;
+  position: relative;
+  bottom: 1px;
+}
+.swiper-button-next img {
+  margin-left: 6px;
+}
+.swiper-button-prev img {
+  margin-right: 9px;
+}
+.select_fbpic .btn {
+  width: 135px;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  bottom: 27px;
+  z-index: 10;
+}
+.selected_img {
+  position: relative;
+}
+.set_text .selected_img {
+  width: 540px;
+}
+.slctdimg_cont {
+  width: 100%;
+  position: relative;
+}
+.selected_img img {
+  width: 100%;
+  height: auto;
+}
+.setted_text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+}
+.change_fonts.flex_box {
+  justify-content: center;
+  width: 100%;
+  margin: 17px 0;
+}
+.change_fonts .btn {
+  width: 136px;
+  height: 38px;
+  line-height: 38px;
+  margin: 0 14px;
+  font-size: 12px;
+}
+.change_fonts .btn.yumincho_36p {
+  font-weight: 900;
+}
+.change_fonts .btn.tsukua {
+  font-weight: 700;
+}
+.controller_cont {
+  height: 100%;
+  padding-left: 25px;
+}
+.set_text .controller_cont {
+  width: calc(100% - 540px);
+  margin-top: 50px;
+}
+.controller {
+  width: 108px;
+  height: 108px;
+  position: relative;
+}
+.controller button {
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  margin:auto;
+}
+.controller button.up_btn {
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.controller button.down_btn {
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.controller button.left_btn {
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+.controller button.right_btn {
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.controller button img {
+  width: 100%;
+  height: auto;
+}
+.text_t {
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 26px;
+  color: #dadada;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.trimming .selected_img {
+  width: 404px;
+}
+.trimming .controller {
+  margin-bottom: 25px;
+}
+.cntrllr_img {
+  width: 36px;
+  height: 36px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.cntrllr_img img {
+  width: 26px;
+  height: auto;
+}
+.setted_trimming {
+  width: 228px;
+  height: 228px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid #fff;
+  filter: brightness(300%);
+}
+.setted_trimming hr {
+  border: none;
+  background-color: #fff;
+  position: absolute;
+}
+.trmmng_hr {
+  width: 100%;
+  height: 1px;
+  left: 0;
+}
+.trmmng_hrv {
+  width: 1px;
+  height: 100%;
+  top: 0;
+}
+.trmmng_hr1 {
+  top: calc(100%/3);
+}
+.trmmng_hr2 {
+  bottom: calc(100%/3);
+}
+.trmmng_hr_v1 {
+  left: calc(100%/3);
+}
+.trmmng_hr_v2 {
+  right: calc(100%/3);
+}
+.trmmng_btns {
+  width: 100%;
+  margin: 20px auto;
+}
+.trmmng_btns .btn {
+  width: 136px;
+  height: 38px;
+  line-height: 38px;
+  margin: 0 25px 0 0;
+  font-size: 12px;
+}
+
+/* 基本情報、パスワードの変更完了 */
+.dashboard_done {
+  padding-top: 45px !important;
+}
+.dashboard_done .redbig_message {
+  margin-bottom: 100px;
+  font-size: 22px;
+  text-align: center;
+}
+.dashboard_done .btn {
+  width: 196px;
+  height: 44px;
+  line-height: 44px;
+}
+
+/* 予算管理、広告管理のページャー */
+.pager {
+  width: 100%;
+  margin-top: 35px;
+}
+.pager.flex_box {
+  justify-content: center;
+}
+.pager li {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #cdcdcd;
+  border-left: none;
+}
+.pager li:first-of-type {
+  border-left: 1px solid #cdcdcd !important;
+}
+.prevbtn, .nextbtn {
+  width: auto !important;
+}
+.pager li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  text-align: center;
+  line-height: 1;
+  font-size: 18px;
+  font-weight: 500;
+  color: #b4b4b4;
+}
+.pager li.current a {
+  background-color: #cdcdcd;
+  color: #fff;
+}
+.pager li a span {
+  font-size: 15px;
+}
+.tostart_btn img, .toend_btn img {
+  width: 9px;
+  height: auto;
+}
+.prevbtn, .nextbtn {
+  padding: 0 10px;
+}
+.prevbtn img, .nextbtn img {
+  width: 5px;
+  height: auto;
+}
+.prevbtn img {
+  margin-right: 13px;
+}
+.nextbtn img {
+  margin-left: 10px;
+}

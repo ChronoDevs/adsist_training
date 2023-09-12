@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware('auth')->group(function () {
+    Route::get('/', function () {
+        return view('welcome');
+    });
+});
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login', function () {
+        return view('login');
+    })->name('login');
+    Route::get('/auth/{social_platform}/redirect', [OAuthController::class, 'redirect'])->name('redirect');
+    Route::get('/auth/{social_platform}/callback', [OAuthController::class, 'loginUsingSocial']);
 });
