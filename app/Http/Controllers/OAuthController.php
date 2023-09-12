@@ -30,7 +30,7 @@ class OAuthController extends Controller
     {
         $socialUser = Socialite::driver($socialPlatform)->user();
 
-        if(!isset($socialUser->id)) {
+        if (!isset($socialUser->id)) {
             return redirect('/login')->withErrors("Missing social user id.");
         }
 
