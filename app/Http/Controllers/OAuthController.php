@@ -9,12 +9,30 @@ use Illuminate\Support\Facades\Auth;
 
 class OAuthController extends Controller
 {
-    public function redirect($socialPlatform) {
+    /**
+     * Redirect QAuth login
+     * 
+     * @param string $socialPlatform
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function redirect($socialPlatform)
+    {
         return Socialite::driver($socialPlatform)->redirect();
     }
 
-    public function loginUsingSocial($socialPlatform) {
+    /**
+     * Updates/Creates user using social info and log in
+     * 
+     * @param string $socialPlatform
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function loginUsingSocial($socialPlatform)
+    {
         $socialUser = Socialite::driver($socialPlatform)->user();
+
+        if(!isset($socialUser->id)) {
+            return redirect('/login')->withErrors("Missing social user id.");
+        }
 
         $user  = User::updateOrCreate([
             'social_id' => $socialUser->id,

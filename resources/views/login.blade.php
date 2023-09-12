@@ -40,6 +40,15 @@
           </div>
           <div class="white_box">
             <div class="title">
+              @if ($errors->any())
+                <div>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+              @endif
               <h2 class="page_title">ログイン</h2>
               <p class="pgttl_eng">LOGIN</p>
             </div>
