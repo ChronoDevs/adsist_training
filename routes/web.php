@@ -19,9 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/login', function() {
-//     return view('adsist.login.login_mail.index');
-// });
 
 Route::get('/login', [LoginController::class, 'show']);
-Route::post('/postLogin', [LoginController::class, 'postLogin'])->name('postLogin');
+Route::post('/login', [LoginController::class, 'postLogin'])->name('login');
+
+

@@ -39,25 +39,24 @@
             <img src="../../img/regist_circle.png">
           </div>
           <div class="white_box">
-            <div class="title">
+            <div class="title"> 
               <h2 class="page_title">ログイン</h2>
-              @if(session('Errors'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('Errors') }}
-                </div>
-              @endif
               <p class="pgttl_eng">LOGIN</p>
             </div>
-           
+            @if (session('error'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('error') }}
+                </div>
+            @endif 
             <div class="regist_cont mail_form">
-              <form id="regist_form" class="regist_form" @submit="checkForm" action="{{ route('postLogin') }}" method="POST" novalidate="true">
+              <form id="regist_form" class="regist_form" @submit="checkForm" action="{{ route('login') }}" method="POST" novalidate="true">
                 @csrf
                 <div class="regist_input">
                   @if ($errors->has('email'))
                     <!-- <p class="error_text">メールアドレスが間違っています</p> -->
                     <span class="text-danger">{{ $errors->first('email') }}</span>
                   @endif
-                  <input type="email" name="email" placeholder="Enter Email">
+                  <input type="email" name="email" placeholder="Enter Email" value="{{old('email')}}">
                 </div>
                 <div class="regist_input">
                   @if ($errors->has('password'))
@@ -69,6 +68,7 @@
                 <button class="btn btn_red" type="submit" name="button">ログイン</button>
               </form>
               <a class="bottom_link red_ul_link" href="../forget_pass/index.html">パスワードをお忘れの方へ</a>
+                
             </div>
           </div>
         </div>
