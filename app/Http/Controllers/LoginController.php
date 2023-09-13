@@ -14,7 +14,7 @@ class LoginController extends Controller
      */
     public function show()
     {
-        return view('adsist.login.login_mail.index');
+        return view('adsist.login.login_mail.login');
     }
 
     /**
@@ -25,7 +25,6 @@ class LoginController extends Controller
      */
     public function postLogin(LoginRequest $request)
     {   
-
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             return redirect()->intended('/')->with('success', __('messages.success.logged'));
@@ -34,3 +33,4 @@ class LoginController extends Controller
          return redirect("login")->with('error', __('messages.errors.credentials'));
     }
 }
+
