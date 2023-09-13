@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,15 +20,11 @@ class LoginController extends Controller
     /**
      * Login
      * 
-     * @param Request $request
+     * @param LoginRequest $request
      * @return response
      */
-    public function postLogin(Request $request)
+    public function postLogin(LoginRequest $request)
     {   
-        $request->validate([
-            'email' => ['required','email'],
-            'password'=> ['required', ]
-        ]);
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
