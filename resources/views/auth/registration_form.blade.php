@@ -54,7 +54,7 @@
                 @endforeach
             </ul>
           @endif
-          <form id="regist_form" class="regist_form" @submit="checkForm" action="{{ route('register.create') }}" method="post" novalidate="true">
+          <form id="regist_form" class="regist_form" @submit="checkForm" action="{{ route('register.confirm_data') }}" method="post" novalidate="true">
             @csrf
             <dl class="form_dl flex_box">
               <dt class="flex_box"><p>お名前<span class="required">必須</span></p></dt>

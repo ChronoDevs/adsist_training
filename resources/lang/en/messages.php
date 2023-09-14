@@ -15,7 +15,8 @@ return [
         'account_exist' => 'Already have an existing account',
         'already_verified' => 'Already verified!',
         're_enter_email' => 'Something went wrong. Please re-enter your email.',
-        'try_again' => 'Something went wrong. Please try again later.'
+        'try_again' => 'Something went wrong. Please try again later.',
+        'expired' => 'Link has expired. Please re-enter email again.'
     ],
     'login' => [
         'missing_social_id' => "Missing social user id."

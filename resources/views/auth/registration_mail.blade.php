@@ -29,12 +29,12 @@
             <form id="regist_form" class="regist_form" @submit="checkForm" action="{{ route('register.send_email_verify') }}" method="post">
               @csrf
               <div class="regist_input">
-                <input type="email" name="email" v-bind:placeholder="placeholder" v-model="email" v-bind:class="{ error: isError }">
                 @if ($errors->any())
                   @foreach ($errors->all() as $error)
                     <p>{{ $error }}</p>
                   @endforeach
                 @endif
+                <input type="email" name="email" v-bind:placeholder="placeholder" v-model="email" v-bind:class="{ error: isError }">
                 <p class="error_text" v-bind:class="{ active: isError2 }">メールアドレスが不正です。</p>
               </div>
               <button class="btn btn_red" type="submit" name="button">送信</button>

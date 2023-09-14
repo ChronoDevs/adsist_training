@@ -11,6 +11,8 @@ use App\Http\Requests\auth\RegisterRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use DateTime;
+use DateInterval;
 
 class RegistrationController extends Controller
 {
@@ -49,9 +51,31 @@ class RegistrationController extends Controller
      *
      * @return \Illuminate\Contracts\View\View
      */
-    public function showForm()
+    public function showForm(RegisterRequest $request)
     {
-        return view('auth.registration_form');
+        $request->flash();
+        return view('auth.registration_form')->withInput($request->all());
+    }
+
+    /**
+     * Confirm form data
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function confirmData(RegisterRequest $request)
+    {
+        $request->flash();
+        return view('auth.registration_confirm_data')->withInput($request->all());
+    }
+
+    /**
+     * Registration complete page
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function registerComplete(RegisterRequest $request)
+    {
+        return view('auth.registration_complete');
     }
 
     /**
@@ -71,7 +95,7 @@ class RegistrationController extends Controller
         ]);
 
         if ($data) {
-            $url = 'http://localhost:8000/registration/verified/'. $noSlashHash;
+            $url = env('APP_URL') . '/registration/verified/'. $noSlashHash;
             Mail::to($data)->send(new EmailVerification($url));
             return redirect()->route('register.mail_complete');
         }
@@ -87,14 +111,17 @@ class RegistrationController extends Controller
     {
         $data = EmailVerify::where('hash', $hash)->first();
 
-        if ($data && !$data->is_verified) {
+        $expiredAt = strtotime(date_add($data->updated_at, date_interval_create_from_date_string('1 hour')));
+        $dateNow = strtotime(Carbon::now());
+
+        if ($data && !$data->is_verified && ($dateNow < $expiredAt)) {
             $data->is_verified = true;
             $data->save();
             return redirect()->route('register.show_form')->with([
                 'message' => __('messages.register.verified'),
                 'email' => $data->email
             ]);
-        } elseif ($data) {
+        } elseif ($data && ($dateNow < $expiredAt)) {
             $user = User::where('email', $data->email)->first();
             if ($user) {
                 return redirect()->route('login')
@@ -107,7 +134,7 @@ class RegistrationController extends Controller
         }
 
         return redirect()->route('register.mail')->withErrors([
-            __('messages.register.re_enter_email')
+            __('messages.register.expired')
         ]);
     }
 
@@ -124,7 +151,7 @@ class RegistrationController extends Controller
 
         if ($user) {
             Auth::login($user);
-            return redirect('/');
+            return redirect()->route('register.complete');
         }
 
         return redirect()->back()->withErrors([__('messages.register.try_again')]);
