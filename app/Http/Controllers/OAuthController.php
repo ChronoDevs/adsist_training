@@ -11,7 +11,7 @@ class OAuthController extends Controller
 {
     /**
      * Redirect QAuth login
-     * 
+     *
      * @param string $socialPlatform
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -22,7 +22,7 @@ class OAuthController extends Controller
 
     /**
      * Updates/Creates user using social info and log in
-     * 
+     *
      * @param string $socialPlatform
      * @return \Illuminate\Http\RedirectResponse
      */
@@ -31,7 +31,7 @@ class OAuthController extends Controller
         $socialUser = Socialite::driver($socialPlatform)->user();
 
         if (!isset($socialUser->id)) {
-            return redirect('/login')->withErrors("Missing social user id.");
+            return redirect('/login')->withErrors(__('messages.login.missing_social_id'));
         }
 
         $user  = User::updateOrCreate([

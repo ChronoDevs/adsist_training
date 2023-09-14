@@ -91,23 +91,23 @@ class RegistrationController extends Controller
             $data->is_verified = true;
             $data->save();
             return redirect()->route('register.show_form')->with([
-                'message' => 'Your email is verified!',
+                'message' => __('messages.register.verified'),
                 'email' => $data->email
             ]);
         } elseif ($data) {
             $user = User::where('email', $data->email)->first();
             if ($user) {
                 return redirect()->route('login')
-                        ->with('message', 'Already have an existing account');
+                        ->with('message', __('messages.register.account_exist'));
             }
             return redirect()->route('register.show_form')->with([
-                'message' => 'Already verified!',
+                'message' => __('messages.register.already_verified'),
                 'email' => $data->email
             ]);
         }
 
         return redirect()->route('register.mail')->withErrors([
-            'Something went wrong. Please re-enter your email.'
+            __('messages.register.re_enter_email')
         ]);
     }
 
@@ -127,6 +127,6 @@ class RegistrationController extends Controller
             return redirect('/');
         }
 
-        return redirect()->back()->withErrors(['Something went wrong. Please try again later.']);
+        return redirect()->back()->withErrors([__('messages.register.try_again')]);
     }
 }
