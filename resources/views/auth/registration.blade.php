@@ -1,4 +1,5 @@
 @extends('layout.app')
+@section('content')
 <header>
     <div class="container flex_box">
       <div class="header_title">
@@ -44,3 +45,4 @@
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script src="{{ asset('/js/common.js') }}"></script>
+  @endsection

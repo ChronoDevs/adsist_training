@@ -1,4 +1,5 @@
 @extends('layout.app')
+@section('content')
 <header>
     <div class="container flex_box">
       <div class="header_title">
@@ -46,3 +47,4 @@
         </div>
     </div>
 </main>
+@endsection
