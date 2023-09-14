@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\inquiryController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OAuthController;
@@ -51,3 +52,11 @@ Route::middleware('guest')->group(function () {
     Route::get('/reset-password/{email}/{token}', [PasswordController::class, 'showResetPassword'])->name('password.reset');
     Route::post('/reset-password', [PasswordController::class, 'resetPassword'])->name('password.update');
 });
+
+//Routes for inquiry
+Route::get('/inquiry', [inquiryController::class, 'index'])->name('inquiry');
+Route::post('/inquiry', [inquiryController::class, 'store'])->name('store');
+Route::get('/inquiry/confirm', [inquiryController::class, 'show'])->name('confirm');
+Route::post('/inquiry/complete', [inquiryController::class, 'save'])->name('save');
+
+
