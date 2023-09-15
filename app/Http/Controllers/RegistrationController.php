@@ -111,30 +111,36 @@ class RegistrationController extends Controller
     {
         $data = EmailVerify::where('hash', $hash)->first();
 
-        $expiredAt = strtotime(date_add($data->updated_at, date_interval_create_from_date_string('1 hour')));
-        $dateNow = strtotime(Carbon::now());
+        if($data){
+            $expiredAt = strtotime(date_add($data->updated_at, date_interval_create_from_date_string('1 hour')));
+            $dateNow = strtotime(Carbon::now());
 
-        if ($data && !$data->is_verified && ($dateNow < $expiredAt)) {
-            $data->is_verified = true;
-            $data->save();
-            return redirect()->route('register.show_form')->with([
-                'message' => __('messages.register.verified'),
-                'email' => $data->email
-            ]);
-        } elseif ($data && ($dateNow < $expiredAt)) {
-            $user = User::where('email', $data->email)->first();
-            if ($user) {
-                return redirect()->route('login')
-                        ->with('message', __('messages.register.account_exist'));
+            if (!$data->is_verified && ($dateNow < $expiredAt)) {
+                $data->is_verified = true;
+                $data->save();
+                return redirect()->route('register.show_form')->with([
+                    'message' => __('messages.register.verified'),
+                    'email' => $data->email
+                ]);
+            } elseif ($dateNow < $expiredAt) {
+                $user = User::where('email', $data->email)->first();
+                if ($user) {
+                    return redirect()->route('login')
+                            ->with('message', __('messages.register.account_exist'));
+                }
+                return redirect()->route('register.show_form')->with([
+                    'message' => __('messages.register.already_verified'),
+                    'email' => $data->email
+                ]);
             }
-            return redirect()->route('register.show_form')->with([
-                'message' => __('messages.register.already_verified'),
-                'email' => $data->email
+
+            return redirect()->route('register.mail')->withErrors([
+                __('messages.register.expired')
             ]);
         }
 
         return redirect()->route('register.mail')->withErrors([
-            __('messages.register.expired')
+            __('messages.register.try_again')
         ]);
     }
 
@@ -150,10 +156,27 @@ class RegistrationController extends Controller
         $user = User::create($request->validated());
 
         if ($user) {
-            Auth::login($user);
-            return redirect()->route('register.complete');
+            return redirect()->route('register.complete')->with(['user' => $user]);
         }
 
         return redirect()->back()->withErrors([__('messages.register.try_again')]);
+    }
+
+    /**
+     * Login newly registered user
+     *
+     * @param integer $userId;
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function registerLogin($userId)
+    {
+        $user = User::find($userId);
+
+        if ($user) {
+            Auth::login($user);
+            return redirect()->route('dashboard');
+        }
+
+        return redirect()->route('login')->withErrors([__('messages.register.try_again')]);
     }
 }

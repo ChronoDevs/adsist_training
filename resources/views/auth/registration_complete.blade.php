@@ -59,7 +59,7 @@
             手軽で自由な新しい広告配信体験を<br class="sp">お楽しみください。
         </p>
         </div>
-        <a class="btn btn_gray" href="{{ route('dashboard') }}">ダッシュボードへ</a>
+        <a class="btn btn_gray" href="{{ route('register.login', Session::get('user')) }}">ダッシュボードへ</a>
     </div>
 @endsection
 

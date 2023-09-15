@@ -18,10 +18,9 @@ use App\Http\Controllers\RegistrationController;
 */
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', function () {
+    Route::get('/dashboard', function () {
         return view('welcome');
     })->name('dashboard');
-    Route::get('/registration/complete', [RegistrationController::class, 'registerComplete'])->name('register.complete');
 });
 
 Route::middleware('guest')->group(function () {
@@ -41,10 +40,9 @@ Route::middleware('guest')->group(function () {
     Route::get('/registration/form', [RegistrationController::class, 'showForm'])->name('register.show_form');
     Route::post('/registration/form', [RegistrationController::class, 'registerUser'])->name('register.create');
     Route::post('/registration/confirmdata', [RegistrationController::class, 'confirmData'])->name('register.confirm_data');
+    Route::get('/registration/complete', [RegistrationController::class, 'registerComplete'])->name('register.complete');
+    Route::get('/registration/login/{userId}', [RegistrationController::class, 'registerLogin'])->name('register.login');
 });
-
 
 Route::get('/login', [LoginController::class, 'show']);
 Route::post('/login', [LoginController::class, 'postLogin'])->name('login');
-
-
