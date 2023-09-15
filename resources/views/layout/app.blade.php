@@ -5,25 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="description" content="">
-    <title>ログイン</title>
+    <title>@yield('title')　|　{{ config('app.name', 'Adsist') }}</title>
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://###" />
-    <meta property="og:image" content="https://###/img/###.png" />
-    <meta property="og:title" content="ログイン" />
-    <meta property="og:description" content=""/>
-    <meta name="twitter:card" content="summary_large_image" />
-    <link href="../img/###.png" rel="icon" type="image/png">
+    <meta property="og:url" content="@yield('meta_url')" />
+    <meta property="og:image" content="@yield('meta_image')" />
+    <meta property="og:title" content="@yield('meta_title')" />
+    <meta property="og:description" content="@yield('meta_description')"/>
+    <meta name="twitter:card" content="@yield('meta_card')" />
+    <link href="@yield('head_icon_link')" rel="icon" type="image/png">
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
   <body>
-    @yield('content')
+    <header class="@yield('header_class')">
+        <div class="container flex_box">
+            @yield('header_content')
+        </div>
+    </header>
+    <main id="@yield('main_id')" class="main_circle">
+        <div id="wrapper">
+            <div class="container">
+                @yield('main_content')
+            </div>
+        </div>
+    </main>
     <footer>
         <div class="container">
-          <p>@2019 ADSIST All rights reserved.</p>
+          @yield('footer_content')
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script src="{{ asset('/js/common.js') }}"></script>
+    @yield('script')
   </body>
 </html>
