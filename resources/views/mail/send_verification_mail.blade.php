@@ -1,4 +1,12 @@
-<h3>Welcome to Adsist!</h3>
+@extends('mail.layout.mail')
 
-<p>To continue with setting up your account. Please verify email.</p>
-<a href="{{ $link }}">Verify Email</a>
+@section('content')
+# Email Verification.
+
+Welcome to Adsist!<br>
+To continue with setting up your account, please verify your email by clicking the button below.
+@component('mail::button', ['url' => $link])
+Verify Email
+@endcomponent
+
+@endsection

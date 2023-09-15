@@ -35,6 +35,6 @@ class EmailVerification extends Mailable
      */
     public function build()
     {
-        return $this->view('mail.send_verification_mail');
+        return $this->markdown('mail.send_verification_mail');
     }
 }
