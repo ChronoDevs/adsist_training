@@ -7,7 +7,7 @@ use App\Models\EmailVerify;
 use App\Models\User;
 use App\Mail\EmailVerification;
 use Illuminate\Support\Facades\Mail;
-use App\Http\Requests\auth\RegisterRequest;
+use App\Http\Requests\Auth\RegisterRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -81,7 +81,7 @@ class RegistrationController extends Controller
     /**
      * Send verification mail to verify user email
      *
-     * @param App\Http\Requests\auth\RegisterRequest
+     * @param App\Http\Requests\Auth\RegisterRequest
      * @return \Illuminate\Http\RedirectResponse
      */
     public function sendVerificationMail(RegisterRequest $request)
@@ -141,7 +141,7 @@ class RegistrationController extends Controller
     /**
      * Register User
      *
-     * @param App\Http\Requests\auth\RegisterRequest
+     * @param App\Http\Requests\Auth\RegisterRequest
      * @return \Illuminate\Http\RedirectResponse
      */
     public function registerUser(RegisterRequest $request)
