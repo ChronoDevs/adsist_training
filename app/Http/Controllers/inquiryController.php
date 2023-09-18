@@ -4,18 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\InquiryRequest;
 use App\Http\Requests\LoginRequest;
-use App\Models\inquiry;
+use App\Mail\SendInquiry;
+use App\Models\Inquiry;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
-class inquiryController extends Controller
+class InquiryController extends Controller
 {
     /**
-     * Show the form
-     * @return Response
+     * Show contact form
+     * @return view
      */
     public function index()
     {
-        return view('adsist.contact.contact');
+        return view('contact.contact');
     }
 
     /**
@@ -44,27 +47,26 @@ class inquiryController extends Controller
     {
         $data = $request->session()->get('inquiry');
 
-        return view('adsist.contact.contact_confirm.confirm', compact('data'));
+        return view('contact.contact_confirm.confirm', compact('data'));
     }
 
     /**
      * Store the specified resource in the storage.
      *
-     * @param  Request $request
+     * 
      * @return Response
      */
-    public function save(Request $request)
+    public function sendEmail()
     {
     // Retrieve the input data from the session
-    $data = $request->session()->get('inquiry');
-
-    // Create an Inquiry model and save it to the database
-    Inquiry::create($data);
-
-    // Clear the session data
-    $request->session()->forget('inquiry');
-
-    return view('adsist.contact.contact_complete.complete');
+    $data = session()->get('inquiry');
+    $recipientEmail = $data['email'];
+    $adminEmail = config('mail.from.address');
+    
+    Mail::to($recipientEmail)->send((new SendInquiry($data))->buildForUser());
+    Mail::to($adminEmail)->send((new SendInquiry($data))->buildForAdmin());
+    
+    return view('contact.contact_complete.complete');
     }
 }
 

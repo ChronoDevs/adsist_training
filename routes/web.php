@@ -54,9 +54,9 @@ Route::middleware('guest')->group(function () {
 });
 
 //Routes for inquiry
-Route::get('/inquiry', [inquiryController::class, 'index'])->name('inquiry');
-Route::post('/inquiry', [inquiryController::class, 'store'])->name('store');
-Route::get('/inquiry/confirm', [inquiryController::class, 'show'])->name('confirm');
-Route::post('/inquiry/complete', [inquiryController::class, 'save'])->name('save');
+Route::get('/inquiry', [InquiryController::class, 'index'])->name('inquiry');
+Route::post('/inquiry', [InquiryController::class, 'store'])->name('store');
+Route::get('/inquiry/confirm', [InquiryController::class, 'show'])->name('confirm');
+Route::post('/inquiry/complete', [InquiryController::class, 'sendEmail'])->name('sendEmail');
 
 
