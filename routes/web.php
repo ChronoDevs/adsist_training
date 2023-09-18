@@ -18,18 +18,20 @@ use App\Http\Controllers\RegistrationController;
 */
 
 Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', function () {
+    Route::get('/', function () {
         return view('welcome');
     })->name('dashboard');
 });
 
 Route::middleware('guest')->group(function () {
     /*Social media login routes*/
-    Route::get('/login', function () {
-        return view('auth.login');
-    })->name('login');
     Route::get('/auth/{social_platform}/redirect', [OAuthController::class, 'redirect'])->name('redirect');
     Route::get('/auth/{social_platform}/callback', [OAuthController::class, 'loginUsingSocial']);
+
+    /* Email & password login*/
+    Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
+    Route::get('/login-form', [LoginController::class, 'showForm'])->name('login.form');
+    Route::post('/login-form', [LoginController::class, 'postLogin'])->name('login.auth');
 
     /*Registration routes*/
     Route::get('/registration', [RegistrationController::class, 'showMainPage'])->name('register.main');
@@ -43,6 +45,3 @@ Route::middleware('guest')->group(function () {
     Route::get('/registration/complete', [RegistrationController::class, 'registerComplete'])->name('register.complete');
     Route::get('/registration/login/{userId}', [RegistrationController::class, 'registerLogin'])->name('register.login');
 });
-
-Route::get('/login', [LoginController::class, 'show']);
-Route::post('/login', [LoginController::class, 'postLogin'])->name('login');

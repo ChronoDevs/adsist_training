@@ -8,29 +8,40 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    /**
+     * Display the specified resource.
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function showLogin()
+    {
+        return view('auth.login_main');
+    }
 
     /**
      * Display the specified resource.
+     *
+     * @return \Illuminate\Contracts\View\View
      */
-    public function show()
+    public function showForm()
     {
-        return view('adsist.login.login_mail.login');
+        return view('auth.login_form');
     }
 
     /**
      * Login
-     * 
+     *
      * @param LoginRequest $request
-     * @return response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function postLogin(LoginRequest $request)
-    {   
+    {
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
             return redirect()->intended('/')->with('success', __('messages.success.logged'));
         }
-        
-         return redirect("login")->with('error', __('messages.errors.credentials'));
+
+         return redirect("/login-form")->with('error', __('messages.errors.credentials'));
     }
 }
 
