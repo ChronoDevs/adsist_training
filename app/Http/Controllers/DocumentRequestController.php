@@ -21,6 +21,16 @@ class DocumentRequestController extends Controller
     }
 
     /**
+     * Show complete page
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
+    public function complete()
+    {
+        return view('document.request_complete');
+    }
+
+    /**
      * Confirm form data
      *
      * @param App\Http\Requests\DocumentRequest
@@ -46,6 +56,6 @@ class DocumentRequestController extends Controller
         Mail::to($user)->send(new RequestDocument($data, 'user_document_request'));
         Mail::to($admin)->send(new RequestDocument($data, 'admin_document_request'));
 
-        return redirect()->route('login')->with(['status' => 'Your request has been sent.']);
+        return redirect()->route('document.complete');
     }
 }

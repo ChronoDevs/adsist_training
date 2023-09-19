@@ -56,4 +56,5 @@ Route::middleware('guest')->group(function () {
     Route::get('/request-document', [DocumentRequestController::class, 'showForm'])->name('document.request');
     Route::post('/request-document', [DocumentRequestController::class, 'sendRequest'])->name('document.send');
     Route::post('/request-document/confirmdata', [DocumentRequestController::class, 'confirmData'])->name('document.confirm');
+    Route::get('/request-document/complete', [DocumentRequestController::class, 'complete'])->name('document.complete');
 });
