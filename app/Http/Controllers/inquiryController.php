@@ -47,7 +47,7 @@ class InquiryController extends Controller
     {
         $data = $request->session()->get('inquiry');
 
-        return view('contact.contact_confirm.confirm', compact('data'));
+        return view('contact.confirm', compact('data'));
     }
 
     /**
@@ -66,7 +66,7 @@ class InquiryController extends Controller
         Mail::to($recipientEmail)->send((new SendInquiry($data, 'inquiry_mail_user')));
         Mail::to($adminEmail)->send((new SendInquiry($data, 'inquiry_mail_admin')));
         
-        return view('contact.contact_complete.complete');
+        return view('contact.complete');
     }
 }
 
