@@ -3,10 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\InquiryRequest;
-use App\Http\Requests\LoginRequest;
 use App\Mail\SendInquiry;
-use App\Models\Inquiry;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
