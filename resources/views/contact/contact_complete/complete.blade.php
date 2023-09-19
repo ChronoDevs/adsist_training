@@ -1,8 +1,29 @@
-@extends('contact.layout.app')
-@section('title', 'Complete')
-@section('content')
-      <div id="wrapper">
-        <div class="container">
+@extends('layout.app')
+@section('title', 'お問い合わせ')
+@section('meta_url', 'https://###')
+@section('meta_image', 'https://###/img/###.png')
+@section('meta_title', 'お問い合わせ')
+@section('meta_description', '')
+@section('meta_card', 'summary_large_image')
+@section('head_icon_link', '../img/###.png')
+@section('header_class', '')
+@section('main_id', 'page_contact_complete')
+
+@section('header_content')
+        <div class="header_title">
+          <h1>
+            <a href="../index.html"><img src="../img/logo.png" alt="ADSIST"></a>
+          </h1>
+        </div>
+        <div class="header_menu">
+          <ul class="flex_box">
+            <li class="hdmn_document"><a href="../document/index.html">資料請求</a></li>
+            <li class="hdmn_login"><a href="../regist/index.html">新規登録</a></li>
+          </ul>
+        </div>   
+@endsection
+
+@section('main_content')
           <div class="title">
             <h2 class="page_title">お問い合わせ</h2>
             <p class="pgttl_eng">CONTACT</p>
@@ -21,8 +42,6 @@
             </p>
             <a class="btn btn_gray" href="../../index.html">TOPへ</a>
           </div>
-        </div>
-      </div>
     </main>
     <footer>
       <div class="container">
@@ -33,4 +52,9 @@
     <script src="../../js/common.js"></script>
   </body>
 </html>
-@stop
+@endsection
+
+@section('script')
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="../../js/common.js"></script>
+@endsection
