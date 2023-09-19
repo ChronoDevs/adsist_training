@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OAuthController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\DocumentRequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,4 +51,9 @@ Route::middleware('guest')->group(function () {
     Route::post('/forgot-password', [PasswordController::class, 'sendEmail'])->name('password.email');
     Route::get('/reset-password/{email}/{token}', [PasswordController::class, 'showResetPassword'])->name('password.reset');
     Route::post('/reset-password', [PasswordController::class, 'resetPassword'])->name('password.update');
+
+    /*Document request routes*/
+    Route::get('/request-document', [DocumentRequestController::class, 'showForm'])->name('document.request');
+    Route::post('/request-document', [DocumentRequestController::class, 'sendRequest'])->name('document.send');
+    Route::post('/request-document/confirmdata', [DocumentRequestController::class, 'confirmData'])->name('document.confirm');
 });
