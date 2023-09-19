@@ -12,34 +12,16 @@ class SendInquiry extends Mailable
     use Queueable, SerializesModels;
 
     public $data;
+    public $blade;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($data)
+    public function __construct($data, $blade)
     {
         $this->data = $data;
-    }
-
-    /**
-     * Build the email content for the user.
-     *
-     * @return $this
-     */
-    public function buildForUser()
-    {
-        return $this->markdown('mail.inquiry_mail_user');
-    }
-
-    /**
-    * Build the email content for the admin.
-    *
-    * @return $this
-    */
-    public function buildForAdmin()
-    {
-        return $this->markdown('mail.inquiry_mail_admin');
+        $this->blade = $blade;
     }
 
     /**
@@ -49,6 +31,6 @@ class SendInquiry extends Mailable
      */
     public function build()
     {
-        return $this->buildForUser();
+        return $this->markdown('mail.'.$this->blade);
     }
 }

@@ -58,15 +58,15 @@ class InquiryController extends Controller
      */
     public function sendEmail()
     {
-    // Retrieve the input data from the session
-    $data = session()->get('inquiry');
-    $recipientEmail = $data['email'];
-    $adminEmail = config('mail.from.address');
-    
-    Mail::to($recipientEmail)->send((new SendInquiry($data))->buildForUser());
-    Mail::to($adminEmail)->send((new SendInquiry($data))->buildForAdmin());
-    
-    return view('contact.contact_complete.complete');
+        // Retrieve the input data from the session
+        $data = session()->get('inquiry');
+        $recipientEmail = $data['email'];
+        $adminEmail = config('mail.from.address');
+        
+        Mail::to($recipientEmail)->send((new SendInquiry($data, 'inquiry_mail_user')));
+        Mail::to($adminEmail)->send((new SendInquiry($data, 'inquiry_mail_admin')));
+        
+        return view('contact.contact_complete.complete');
     }
 }
 
