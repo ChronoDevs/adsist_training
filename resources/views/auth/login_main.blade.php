@@ -12,7 +12,7 @@
 @section('header_content')
     <div class="header_title">
         <h1>
-            <a href="../index.html"><img src="{{ asset('/img/logo.png') }}" alt="ADSIST"></a>
+            <a href="{{ route('dashboard') }}"><img src="{{ asset('/img/logo.png') }}" alt="ADSIST"></a>
         </h1>
     </div>
     <div class="header_menu">
@@ -42,7 +42,7 @@
             <p class="pgttl_eng">LOGIN</p>
         </div>
         <div class="regist_cont">
-            <a class="btn btn_red" href="login_mail/index.html"><img class="btnimg" src="{{ asset('/img/icon_mail.png') }}">メールアドレスでログイン</a>
+            <a class="btn btn_red" href="{{ route('login.form') }}"><img class="btnimg" src="{{ asset('/img/icon_mail.png') }}">メールアドレスでログイン</a>
             <p class="regist_or">または</p>
             <a class="btn btn_fb" href="{{ route('redirect', 'facebook') }}"><img class="btnimg" src="{{ asset('/img/icon_fb.png') }}">facebookでログイン</a>
             <a class="btn btn_tw" href="{{ route('redirect', 'line') }}"><i class="fab fa-line btnimg"></i>Lineでログイン</a>
