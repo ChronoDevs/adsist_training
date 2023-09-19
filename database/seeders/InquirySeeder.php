@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\inquiry;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
