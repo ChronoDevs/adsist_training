@@ -9,7 +9,6 @@
 
 @yield('content')
 
-
 <br>
 
 ---

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OAuthController;
@@ -58,3 +59,11 @@ Route::middleware('guest')->group(function () {
     Route::post('/request-document/confirmdata', [DocumentRequestController::class, 'confirmData'])->name('document.confirm');
     Route::get('/request-document/complete', [DocumentRequestController::class, 'complete'])->name('document.complete');
 });
+
+//Routes for inquiry
+Route::get('/inquiry', [InquiryController::class, 'index'])->name('inquiry');
+Route::post('/inquiry', [InquiryController::class, 'store'])->name('store');
+Route::get('/inquiry/confirm', [InquiryController::class, 'show'])->name('confirm');
+Route::post('/inquiry/complete', [InquiryController::class, 'sendEmail'])->name('sendEmail');
+
+
