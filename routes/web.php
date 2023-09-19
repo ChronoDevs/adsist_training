@@ -4,7 +4,7 @@ use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OAuthController;
 use App\Http\Controllers\RegistrationController;
-
+use App\Http\Controllers\PasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,4 +44,10 @@ Route::middleware('guest')->group(function () {
     Route::post('/registration/confirmdata', [RegistrationController::class, 'confirmData'])->name('register.confirm_data');
     Route::get('/registration/complete', [RegistrationController::class, 'registerComplete'])->name('register.complete');
     Route::get('/registration/login/{userId}', [RegistrationController::class, 'registerLogin'])->name('register.login');
+
+    /*Password reset routes*/
+    Route::get('/forgot-password', [PasswordController::class, 'showForgotPassForm'])->name('password.request');
+    Route::post('/forgot-password', [PasswordController::class, 'sendEmail'])->name('password.email');
+    Route::get('/reset-password/{email}/{token}', [PasswordController::class, 'showResetPassword'])->name('password.reset');
+    Route::post('/reset-password', [PasswordController::class, 'resetPassword'])->name('password.update');
 });
