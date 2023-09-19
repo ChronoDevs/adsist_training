@@ -1,4 +1,4 @@
-@extends('mail.layout')
+@extends('mail.layout.mail')
 
 @section('content')
 # You are receiving this email because we received an inquiry.
@@ -9,4 +9,3 @@
 <p>Telephone: {{ $data['contact_number'] }}</p>
 <p>Company Name: {{ $data['company_name'] }}</p>
 @endsection
-
