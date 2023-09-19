@@ -17,7 +17,7 @@
     </div>
     <div class="header_menu">
         <ul class="flex_box">
-        <li class="hdmn_document"><a href="../../document/index.html">資料請求</a></li>
+        <li class="hdmn_document"><a href="{{ route('document.request') }}">資料請求</a></li>
         <li class="hdmn_login"><a href="{{ route('register.main') }}">新規登録</a></li>
         </ul>
     </div>
