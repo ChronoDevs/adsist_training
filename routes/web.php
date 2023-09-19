@@ -46,3 +46,7 @@ Route::middleware('guest')->group(function () {
 
 Route::get('/login', [LoginController::class, 'show']);
 Route::post('/login', [LoginController::class, 'postLogin'])->name('login');
+
+Route::get('/faq', function () {
+    return view('faq.faq');
+});
