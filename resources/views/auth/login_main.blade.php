@@ -42,6 +42,9 @@
             <p class="pgttl_eng">LOGIN</p>
         </div>
         <div class="regist_cont">
+            @if (Session::has('status'))
+                <span>{{ Session::get('status') }}</span>
+            @endif
             <a class="btn btn_red" href="{{ route('login.form') }}"><img class="btnimg" src="{{ asset('/img/icon_mail.png') }}">メールアドレスでログイン</a>
             <p class="regist_or">または</p>
             <a class="btn btn_fb" href="{{ route('redirect', 'facebook') }}"><img class="btnimg" src="{{ asset('/img/icon_fb.png') }}">facebookでログイン</a>

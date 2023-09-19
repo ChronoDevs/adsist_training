@@ -56,7 +56,7 @@
             </div>
             <button class="btn btn_red" type="submit" name="button">ログイン</button>
         </form>
-        <a class="bottom_link red_ul_link" href="../forget_pass/index.html">パスワードをお忘れの方へ</a>
+        <a class="bottom_link red_ul_link" href="{{ route('password.request') }}">パスワードをお忘れの方へ</a>
 
         </div>
     </div>
