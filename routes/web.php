@@ -67,3 +67,7 @@ Route::get('/inquiry/confirm', [InquiryController::class, 'show'])->name('confir
 Route::post('/inquiry/complete', [InquiryController::class, 'sendEmail'])->name('sendEmail');
 
 
+
+Route::get('/faq', function () {
+    return view('faq.faq');
+});
