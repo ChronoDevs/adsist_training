@@ -66,8 +66,7 @@ Route::post('/inquiry', [InquiryController::class, 'store'])->name('store');
 Route::get('/inquiry/confirm', [InquiryController::class, 'show'])->name('confirm');
 Route::post('/inquiry/complete', [InquiryController::class, 'sendEmail'])->name('sendEmail');
 
-
-
+//Route for FAQ
 Route::get('/faq', function () {
     return view('faq.faq');
-});
+})->name('faq');
