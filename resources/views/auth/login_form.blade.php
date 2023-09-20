@@ -8,6 +8,7 @@
 @section('head_icon_link', '../img/###.png')
 @section('header_class', '')
 @section('main_id', 'page_login_mail')
+@section('main_class', 'main_circle')
 
 @section('header_content')
     <div class="header_title">

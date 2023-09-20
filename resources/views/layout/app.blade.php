@@ -22,14 +22,15 @@
             @yield('header_content')
         </div>
     </header>
-    <main id="@yield('main_id')" class="main_circle">
+    <main id="@yield('main_id')" class="@yield('main_class')">
         <div id="wrapper">
-            <div class="container">
+            <div class="container @yield('main_cont_class')">
+                @yield('sidebar')
                 @yield('main_content')
             </div>
         </div>
     </main>
-    <footer>
+    <footer class="@yield('footer_class')">
         <div class="container">
           @yield('footer_content')
         </div>

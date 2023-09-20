@@ -8,6 +8,7 @@
 @section('head_icon_link', '../img/###.png')
 @section('header_class', '')
 @section('main_id', 'page_contact_complete')
+@section('main_class', 'main_circle')
 
 @section('header_content')
         <div class="header_title">
@@ -20,7 +21,7 @@
             <li class="hdmn_document"><a href="../document/index.html">資料請求</a></li>
             <li class="hdmn_login"><a href="../regist/index.html">新規登録</a></li>
           </ul>
-        </div>   
+        </div>
 @endsection
 
 @section('main_content')
