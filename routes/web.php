@@ -7,6 +7,8 @@ use App\Http\Controllers\OAuthController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\DocumentRequestController;
+use App\Http\Controllers\ProfileController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +25,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/', function () {
         return view('welcome');
     })->name('dashboard');
+
+    /*Profile informroute*/
+    Route::get('/profile-info', [ProfileController::class, 'showProfile'])->name('profile.show');
 });
 
 Route::middleware('guest')->group(function () {
