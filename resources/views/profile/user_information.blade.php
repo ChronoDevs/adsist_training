@@ -25,7 +25,7 @@
     </div>
 @endsection
 
-@include('sidebar')
+@include('templates.sidebar')
 
 @section('main_content')
     <div id="maincont">
