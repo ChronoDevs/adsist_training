@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\auth\PasswordResetRequest;
-use App\Http\Requests\auth\PasswordChangeRequest;
+use App\Http\Requests\Auth\PasswordResetRequest;
+use App\Http\Requests\Auth\PasswordChangeRequest;
 use Illuminate\Support\Facades\Password;
 use App\Models\User;
 use Illuminate\Support\Str;
