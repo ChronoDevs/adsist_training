@@ -8,7 +8,8 @@ return [
     'errors' => [
         'email' => 'Wrong Email',
         'password' => 'No Password',
-        'credentials' => 'You have entered wrong Credentials'
+        'credentials' => 'You have entered wrong Credentials',
+        'wrong_password' => 'Wrong password'
     ],
     'register' => [
         'verified' => 'Your email is verified!',

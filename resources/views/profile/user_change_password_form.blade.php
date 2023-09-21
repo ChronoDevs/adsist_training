@@ -1,8 +1,8 @@
 @extends('layout.app')
-@section('title', '登録情報 | ADSIST')
+@section('title', 'パスワードの変更 | ADSIST')
 @section('meta_url', 'https://###')
 @section('meta_image', 'https://###/img/###.png')
-@section('meta_title', '登録情報 | ADSIST')
+@section('meta_title', 'パスワードの変更 | ADSIST')
 @section('meta_description', '')
 @section('meta_card', 'summary_large_image')
 @section('head_icon_link', '../img/###.png')
@@ -34,59 +34,41 @@
         </div>
         <div class="dashboard_title">
         <h2>
-            登録情報
+            パスワードの変更
         </h2>
         </div>
-        <div class="container">
-        <div class="content_block">
-            <div class="item_block">
-            <h3 class="content_ttl">基本・ブランド情報</h3>
+        <div class="container change_password">
+        <div class="content_block none_bg">
+            <form @submit="checkForm" id="changepass_form" action="{{ route('profile.change_password') }}" method="post">
+            @csrf
+            <p class="redbig_message">パスワード入力</p>
             <dl>
-                <dt>お名前</dt>
-                <dd>{{ $user->name }}</dd>
-            </dl>
-            <dl>
-                <dt>メールアドレス</dt>
-                <dd>{{ $user->email }}</dd>
-            </dl>
-            <dl>
-                <dt>会社名</dt>
-                <dd>{{ $user->company_name? $user->company_name : 'None' }}</dd>
-            </dl>
-            <dl>
-                <dt>ブランド名</dt>
-                <dd>{{ $user->brand_name? $user->brand_name : 'None' }}</dd>
-            </dl>
-            <dl>
-                <dt>業種</dt>
-                <dd>{{ $user->industry? $user->industry : 'None' }}</dd>
-            </dl>
-            <dl>
-                <dt>サイトURL</dt>
+                <dt>
+                現在のパスワード <span class="required">必須</span>
+                </dt>
                 <dd>
-                <a href="" target="_blank">{{ $user->site_url? $user->site_url : 'None' }}</a>
+                @if ($errors->has('cur_password'))
+                    <span>{{ $errors->first('cur_password') }}</span>
+                @endif
+                <input type="password" class="input_text" name="cur_password" v-model="password" :class="{ error: isError }" :placeholder="placeholder" value="{{ old('cur_password') }}">
                 </dd>
             </dl>
-            <div class="btn_more">
-                <a href="./change_profile/index.html" class="btn btn_red">
-                変更する
-                </a>
-            </div>
-            </div>
-            <div class="item_block">
             <dl>
-                <dt>パスワード</dt>
+                <dt>
+                新しいパスワード <span class="required">必須</span>
+                </dt>
                 <dd>
-                **********
-                <span class="ateniton">※セキュリティのためパスワードは非表示となっています。</span>
+                @if ($errors->has('new_password'))
+                    <span>{{ $errors->first('new_password') }}</span>
+                @endif
+                <input type="password" class="input_text" name="new_password" v-model="password" :class="{ error: isError }" :placeholder="placeholder" value="{{ old('new_password') }}">
                 </dd>
             </dl>
-            <div class="btn_more">
-                <a href="{{ route('profile.show_password_form') }}" class="btn btn_red">
-                変更する
-                </a>
+            <div class="btn_area">
+                <button class="btn btn_gray" type="button" onclick="history.back()">修正する</button>
+                <button class="btn btn_red" type="submit">変更する</button>
             </div>
-            </div>
+            </form>
         </div><!--content_block END-->
         </div><!-- END container -->
     </div><!-- END maincont -->
@@ -135,4 +117,5 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="{{ asset('/js/common.js') }}"></script>
     <script src="{{ asset('/js/dashboard.js') }}"></script>
+    <script src="{{ asset('/js/change_pass.js') }}"></script>
 @endsection

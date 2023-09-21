@@ -1,14 +1,14 @@
 @extends('layout.app')
-@section('title', '登録情報 | ADSIST')
+@section('title', 'パスワードの変更 | ADSIST')
 @section('meta_url', 'https://###')
 @section('meta_image', 'https://###/img/###.png')
-@section('meta_title', '登録情報 | ADSIST')
+@section('meta_title', 'パスワードの変更 | ADSIST')
 @section('meta_description', '')
 @section('meta_card', 'summary_large_image')
 @section('head_icon_link', '../img/###.png')
 @section('header_class', 'header_dashboard')
 @section('main_id', 'page_dashboard')
-@section('main_class', 'under account')
+@section('main_class', 'under account confirm')
 @section('main_cont_class', 'dashboard_cont flex_box')
 
 @section('header_content')
@@ -34,59 +34,13 @@
         </div>
         <div class="dashboard_title">
         <h2>
-            登録情報
+            パスワードの変更
         </h2>
         </div>
-        <div class="container">
-        <div class="content_block">
-            <div class="item_block">
-            <h3 class="content_ttl">基本・ブランド情報</h3>
-            <dl>
-                <dt>お名前</dt>
-                <dd>{{ $user->name }}</dd>
-            </dl>
-            <dl>
-                <dt>メールアドレス</dt>
-                <dd>{{ $user->email }}</dd>
-            </dl>
-            <dl>
-                <dt>会社名</dt>
-                <dd>{{ $user->company_name? $user->company_name : 'None' }}</dd>
-            </dl>
-            <dl>
-                <dt>ブランド名</dt>
-                <dd>{{ $user->brand_name? $user->brand_name : 'None' }}</dd>
-            </dl>
-            <dl>
-                <dt>業種</dt>
-                <dd>{{ $user->industry? $user->industry : 'None' }}</dd>
-            </dl>
-            <dl>
-                <dt>サイトURL</dt>
-                <dd>
-                <a href="" target="_blank">{{ $user->site_url? $user->site_url : 'None' }}</a>
-                </dd>
-            </dl>
-            <div class="btn_more">
-                <a href="./change_profile/index.html" class="btn btn_red">
-                変更する
-                </a>
-            </div>
-            </div>
-            <div class="item_block">
-            <dl>
-                <dt>パスワード</dt>
-                <dd>
-                **********
-                <span class="ateniton">※セキュリティのためパスワードは非表示となっています。</span>
-                </dd>
-            </dl>
-            <div class="btn_more">
-                <a href="{{ route('profile.show_password_form') }}" class="btn btn_red">
-                変更する
-                </a>
-            </div>
-            </div>
+        <div class="container dashboard_done">
+        <div class="content_block none_bg">
+            <p class="redbig_message">パスワードを更新しました</p>
+            <a class="btn btn_gray" href="{{ route('profile.show') }}">登録情報TOPへ</a>
         </div><!--content_block END-->
         </div><!-- END container -->
     </div><!-- END maincont -->

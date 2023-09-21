@@ -26,8 +26,11 @@ Route::middleware('auth')->group(function () {
         return view('welcome');
     })->name('dashboard');
 
-    /*Profile informroute*/
+    /*Profile information route*/
     Route::get('/profile-info', [ProfileController::class, 'showProfile'])->name('profile.show');
+    Route::get('/change-password', [PasswordController::class, 'showChangePasswordForm'])->name('profile.show_password_form');
+    Route::post('/change-password', [PasswordController::class, 'changePassword'])->name('profile.change_password');
+    Route::get('/change-password/complete', [PasswordController::class, 'completedPasswordChange'])->name('profile.change_password_complete');
 });
 
 Route::middleware('guest')->group(function () {
