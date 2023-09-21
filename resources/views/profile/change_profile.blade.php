@@ -48,13 +48,20 @@
                       お名前 <span class="required">必須</span>
                     </dt>
                     <dd>
+                    @if($errors->has('name'))
+                        <p>{{ $errors->first('name') }}</p>
+                    @endif
                       <input type="text" class="input_text" :placeholder="placeholder_name" name="name" value="{{ $user->name }}" :class="{ error: nameError }">
                     </dd>
-                  </dl><dl>
+                  </dl>
+                  <dl>
                     <dt>
                       メールアドレス <span class="required">必須</span>
                     </dt>
                     <dd>
+                    @if($errors->has('email'))
+                        <p>{{ $errors->first('email') }}</p>
+                    @endif
                       <input type="mail" class="input_text" :placeholder="placeholder_email" name="email" value="{{ $user->email }}" :class="{ error: emailError }">
                     </dd>
                   </dl>
@@ -71,6 +78,9 @@
                       ブランド名  <span class="required">必須</span>
                     </dt>
                     <dd>
+                    @if($errors->has('brand_name'))
+                        <p>{{ $errors->first('brand_name') }}</p>
+                    @endif
                       <input type="text" class="input_text" :placeholder="placeholder_brand" name="brand_name" value="{{ $user->brand_name }}" :class="{ error: brandError }">
                     </dd>
                   </dl>
@@ -79,6 +89,9 @@
                       業種  <span class="required">必須</span>
                     </dt>
                     <dd>
+                    @if($errors->has('industry'))
+                        <p>{{ $errors->first('industry') }}</p>
+                    @endif
                       <input type="text" class="input_text" :placeholder="placeholder_business" name="industry" value="{{ $user->industry }}" :class="{ error: businessError }">
                     </dd>
                   </dl>
@@ -87,6 +100,9 @@
                       サイトURL  <span class="required">必須</span>
                     </dt>
                     <dd>
+                    @if($errors->has('site_url'))
+                        <p>{{ $errors->first('site_url') }}</p>
+                    @endif
                       <input type="text" class="input_text" :placeholder="placeholder_url" name="site_url" value="{{ $user->site_url }}" :class="{ error: urlError }">
                     </dd>
                   </dl>

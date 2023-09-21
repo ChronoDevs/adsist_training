@@ -29,7 +29,6 @@ class UserRequest extends FormRequest
             'brand_name' => ['required'],
             'industry'=> ['required'],
             'site_url'=> ['required'],
-
         ];
     }
 }
