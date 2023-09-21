@@ -25,6 +25,7 @@ class Adsets extends Model
         'site_url',
         'targeting',
         'category_name',
+        'media_file',
         'start_date',
         'end_date'
     ];
