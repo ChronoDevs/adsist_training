@@ -68,7 +68,7 @@
                 </dd>
             </dl>
             <div class="btn_more">
-                <a href="./change_profile/index.html" class="btn btn_red">
+                <a href="{{ route('profile.edit', ['user' => $user->id]) }}" class="btn btn_red">
                 変更する
                 </a>
             </div>
