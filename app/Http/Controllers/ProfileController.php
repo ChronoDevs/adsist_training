@@ -64,17 +64,15 @@ class ProfileController extends Controller
      */
     public function complete()
     {
-        $requestData = request()->session()->getOldInput();
-        $user = User::find($requestData['id']);
-        $user->update([
-            'name' => $requestData['name'],
-            'email' => $requestData['email'],
-            'company_name' => $requestData['company_name'],
-            'brand_name' => $requestData['brand_name'],
-            'industry' => $requestData['industry'],
-            'site_url' => $requestData['site_url'],
-        ]);
-        return redirect()->route('profile.updated')->with('success', 'Profile updated successfully');        
+        $requestData = request()->session()->getOldInput(); 
+        $user = new User();
+
+        $user->updateProfile($requestData);
+        if (!$user) {
+            return redirect()->back()->with('error', 'Failed to update profile');
+        }
+        
+        return redirect()->route('profile.updated')->with('success', 'Profile updated successfully');
     }
 
     /**

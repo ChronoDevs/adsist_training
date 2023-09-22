@@ -40,8 +40,6 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect()->intended('/')->with('success', __('messages.success.logged'));
         }
-
-         return redirect("/login-form")->with('error', __('messages.errors.credentials'));
+            return redirect("/login-form")->with('error', __('messages.errors.credentials'));
     }
 }
-

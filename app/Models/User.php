@@ -69,4 +69,36 @@ class User extends Authenticatable implements CanResetPassword
     {
         return $this->hasMany(Campaign::class);
     }
+
+    /**
+     * Update user data.
+     */
+    public function updateProfile(array $requestData)
+    {
+    // return $this->update([
+    //     'name' => $data['name'],
+    //     'email' => $data['email'],
+    //     'company_name' => $data['company_name'],
+    //     'brand_name' => $data['brand_name'],
+    //     'industry' => $data['industry'],
+    //     'site_url' => $data['site_url'],
+    //     ]);
+    try {
+
+        $user = User::find($requestData['id']);
+
+        return $user->update([
+            'name' => $requestData['name'],
+            'email' => $requestData['email'],
+            'company_name' => $requestData['company_name'],
+            'brand_name' => $requestData['brand_name'],
+            'industry' => $requestData['industry'],
+            'site_url' => $requestData['site_url'],
+        ]);
+   
+      } catch (\Exception $e) {
+      
+        return false;
+      }         
+    }
 }
