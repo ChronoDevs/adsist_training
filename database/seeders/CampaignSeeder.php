@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Campaign;
 use Illuminate\Database\Seeder;
-use App\Models\User;
 
-class UserSeeder extends Seeder
+class CampaignSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::truncate();
-        User::factory()->count(3)->create();
+        Campaign::truncate();
+        Campaign::factory()->count(7)->create();
     }
 }
