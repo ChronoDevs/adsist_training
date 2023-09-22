@@ -15,7 +15,7 @@ class CreateAdsetsTable extends Migration
     {
         Schema::create('adsets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('campaign_id')->references('id')->on('campaign');
+            $table->foreignId('campaign_id')->references('id')->on('campaigns')->onDelete('cascade');
             $table->string('headline')->nullable();
             $table->string('description')->nullable();
             $table->string('site_url')->nullable();

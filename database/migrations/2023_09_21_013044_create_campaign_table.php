@@ -15,8 +15,8 @@ class CreateCampaignTable extends Migration
     {
         Schema::create('campaigns', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('social_platform_id')->references('id')->on('social_platform');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreignId('social_platform_id')->references('id')->on('social_platforms')->onDelete('cascade');
             $table->string('name')->nullable();
             $table->integer('budget')->default(0);
             $table->integer('daily_budget')->default(0);

@@ -15,7 +15,7 @@ class CreateAdsTable extends Migration
     {
         Schema::create('ads', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('adsets_id')->references('id')->on('adsets');
+            $table->foreignId('adset_id')->references('id')->on('adsets')->onDelete('cascade');
             $table->integer('total_views')->default(0);
             $table->integer('total_clicks')->default(0);
             $table->integer('total_acquisition')->default(0);

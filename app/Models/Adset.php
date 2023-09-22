@@ -9,7 +9,7 @@ use App\Models\Campaign;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use App\Models\Ad;
 
-class Adsets extends Model
+class Adset extends Model
 {
     use HasFactory;
 
