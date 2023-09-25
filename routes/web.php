@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/change-password', [PasswordController::class, 'showChangePasswordForm'])->name('profile.show_password_form');
     Route::post('/change-password', [PasswordController::class, 'changePassword'])->name('profile.change_password');
     Route::get('/change-password/complete', [PasswordController::class, 'completedPasswordChange'])->name('profile.change_password_complete');
+
+    /*Campaign budget routes*/
+    Route::get('/campaign-budget', [CampaignController::class, 'showMain'])->name('campaign.main');
+    Route::get('/campaign-budget/form', [CampaignController::class, 'showBudgetForm'])->name('campaign.budget_form');
+    Route::post('/campaign-budget/form', [CampaignController::class, 'addBudget'])->name('campaign.add_budget');
 });
 
 Route::middleware('guest')->group(function () {

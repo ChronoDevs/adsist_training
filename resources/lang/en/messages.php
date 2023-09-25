@@ -5,6 +5,7 @@ return [
     'success'   => [
         'logged' => 'You are Logged In, Nice!',
         'update_success' => 'Updated Successfully',
+        'campaign_registered' => 'You have successfully added a new campaign!'
     ],
     'errors' => [
         'email' => 'Wrong Email',
