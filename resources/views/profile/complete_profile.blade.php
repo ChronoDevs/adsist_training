@@ -37,6 +37,11 @@
                 基本情報の変更
               </h2>
             </div>
+            @if (session('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="container dashboard_done">
               <div class="content_block none_bg">
                 <p class="redbig_message">基本情報を更新しました</p>

@@ -69,10 +69,10 @@ class ProfileController extends Controller
 
         $user->updateProfile($requestData);
         if (!$user) {
-            return redirect()->back()->with('error', 'Failed to update profile');
+            return redirect()->back()->with('error', __('messages.errors.update_failed'));
         }
         
-        return redirect()->route('profile.updated')->with('success', 'Profile updated successfully');
+        return redirect()->route('profile.updated')->with('success', __('messages.success.update_success'));
     }
 
     /**

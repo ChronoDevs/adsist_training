@@ -42,6 +42,9 @@
                 <form action="{{ route('profile.complete') }}" method="POST">
                   @csrf  
                   <h3 class="content_ttl">基本・ブランド情報</h3>
+                  @if (Session::has('error'))
+                    <span class="text-danger">{{ Session::get('error') }}</span>
+                  @endif
                   <dl>
                     <dt>お名前</dt>
                     <dd>
