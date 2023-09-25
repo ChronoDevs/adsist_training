@@ -28,6 +28,10 @@ Route::middleware('auth')->group(function () {
 
     /*Profile information route*/
     Route::get('/profile-info', [ProfileController::class, 'showProfile'])->name('profile.show');
+    Route::get('/profile-edit/{user}', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::post('/profile-confirm', [ProfileController::class, 'confirmProfile'])->name('profile.confirm');
+    Route::post('/profile-complete', [ProfileController::class, 'complete'])->name('profile.complete');
+    Route::get('/profile-updated', [ProfileController::class, 'updated'])->name('profile.updated');
     Route::get('/change-password', [PasswordController::class, 'showChangePasswordForm'])->name('profile.show_password_form');
     Route::post('/change-password', [PasswordController::class, 'changePassword'])->name('profile.change_password');
     Route::get('/change-password/complete', [PasswordController::class, 'completedPasswordChange'])->name('profile.change_password_complete');

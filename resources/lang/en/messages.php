@@ -4,12 +4,14 @@ return [
 
     'success'   => [
         'logged' => 'You are Logged In, Nice!',
+        'update_success' => 'Updated Successfully',
     ],
     'errors' => [
         'email' => 'Wrong Email',
         'password' => 'No Password',
         'credentials' => 'You have entered wrong Credentials',
-        'wrong_password' => 'Wrong password'
+        'wrong_password' => 'Wrong password',
+        'update_failed' => 'Failed to update',
     ],
     'register' => [
         'verified' => 'Your email is verified!',

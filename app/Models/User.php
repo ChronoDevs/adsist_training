@@ -26,7 +26,10 @@ class User extends Authenticatable implements CanResetPassword
         'email',
         'password',
         'social_id',
-        'company_name'
+        'company_name',
+        'brand_name',
+        'industry',
+        'site_url',
     ];
 
     /**
@@ -65,5 +68,30 @@ class User extends Authenticatable implements CanResetPassword
     public function campaigns(): HasMany
     {
         return $this->hasMany(Campaign::class);
+    }
+
+    /**
+     * Update user data.
+     */
+    public function updateProfile(array $requestData)
+    {
+        
+    try {
+
+        $user = User::find($requestData['id']);
+
+        return $user->update([
+            'name' => $requestData['name'],
+            'email' => $requestData['email'],
+            'company_name' => $requestData['company_name'],
+            'brand_name' => $requestData['brand_name'],
+            'industry' => $requestData['industry'],
+            'site_url' => $requestData['site_url'],
+        ]);
+   
+      } catch (\Exception $e) {
+      
+        return false;
+      }         
     }
 }
