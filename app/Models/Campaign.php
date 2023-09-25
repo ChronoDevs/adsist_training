@@ -9,10 +9,11 @@ use App\Models\User;
 use App\Models\SocialPlatform;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Models\Adset;
+use App\Models\Traits\Register;
 
 class Campaign extends Model
 {
-    use HasFactory;
+    use HasFactory, Register;
 
     /**
      * The attributes that are mass assignable.

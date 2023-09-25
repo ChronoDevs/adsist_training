@@ -13,8 +13,9 @@
     <meta property="og:description" content="@yield('meta_description')"/>
     <meta name="twitter:card" content="@yield('meta_card')" />
     <link href="@yield('head_icon_link')" rel="icon" type="image/png">
-    <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/index.css') }}">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    @yield('css')
   </head>
   <body>
     <header class="@yield('header_class')">
@@ -29,6 +30,7 @@
                 @yield('main_content')
             </div>
         </div>
+        @yield('modal')
     </main>
     <footer class="@yield('footer_class')">
         <div class="container">
