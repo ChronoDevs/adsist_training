@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Models\Campaign;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use App\Models\Ad;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 
 class Adset extends Model
 {
@@ -44,5 +46,14 @@ class Adset extends Model
     public function ad(): HasOne
     {
         return $this->hasOne(Ad::class);
+    }
+
+    /**
+     * Get active adset.
+     */
+    public function scopeRendered(Builder $query): void
+    {
+        $today = Carbon::today();
+        $query->where('start_date', '<=', $today);
     }
 }

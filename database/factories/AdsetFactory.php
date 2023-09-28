@@ -15,6 +15,8 @@ class AdsetFactory extends Factory
     public function definition()
     {
         $campaignIds = DB::table('campaigns')->pluck('id');
+        $startDate = $this->faker->dateTimeThisMonth();
+        $endDate = date('Y-m-d', strtotime(date_format($startDate, 'm/d/Y'). ' + 3 days'));
         return [
             'campaign_id' => $this->faker->randomElement($campaignIds),
             'headline' => $this->faker->text(10),
@@ -23,8 +25,8 @@ class AdsetFactory extends Factory
             'targeting' => $this->faker->word(),
             'category_name' => $this->faker->word(),
             'media_file' => $this->faker->url(),
-            'start_date' => $this->faker->date(),
-            'end_date' => $this->faker->date(),
+            'start_date' => $startDate,
+            'end_date' => $endDate,
         ];
     }
 }
