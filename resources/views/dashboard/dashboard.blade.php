@@ -27,7 +27,16 @@
         </div>
 @endsection
 
-@include('templates.sidebar')
+@include(
+    'templates.sidebar',
+    [
+        'dashboard' => false,
+        'budgetmanage' => true,
+        'admanage' => false,
+        'information' => false,
+        'contact' => false,
+    ]
+)
 
 @section('main_content')
           <div id="maincont">
