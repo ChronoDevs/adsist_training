@@ -5,12 +5,34 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CampaignRequest;
 use App\Models\Campaign;
 use App\Models\SocialPlatform;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
-use PhpParser\Node\Expr\NullsafeMethodCall;
+use Illuminate\Support\Facades\DB;
 
 class CampaignController extends Controller
 {
+    /**
+     * Campaign paginate
+     *
+     * @return \App\Models\Campaign
+     */
+    public function campaignPaginate()
+    {
+        $noItems = 2;
+        $userId = Auth::user()->id;
+        $campaigns = Campaign::whereHas('user', function(Builder $query) use ($userId) {
+                        $query->where('id', $userId);
+                    })->with(['renderedAdsets' => function ($query) {
+                        $query->select(
+                            'id',
+                            'campaign_id',
+                            DB::raw('(CASE WHEN end_date <= CURRENT_DATE() THEN DATEDIFF(end_date, start_date)
+                            ELSE DATEDIFF(CURRENT_DATE(), start_date) END) as days'));
+                    }])->paginate($noItems);
+
+        return $campaigns;
+    }
+
     /**
      * Budget main page
      *
@@ -18,7 +40,7 @@ class CampaignController extends Controller
      */
     public function showMain()
     {
-        return view('budget.main');
+        return view('budget.main', ['campaigns' => $this->campaignPaginate()]);
     }
 
     /**
@@ -29,7 +51,13 @@ class CampaignController extends Controller
     public function showBudgetForm()
     {
         $socialPlatforms = SocialPlatform::all();
-        return view('budget.main', ['socialPlatforms' => $socialPlatforms]);
+        return view(
+            'budget.main',
+            [
+                'campaigns' => $this->campaignPaginate(),
+                'socialPlatforms' => $socialPlatforms
+            ]
+        );
     }
 
     /**

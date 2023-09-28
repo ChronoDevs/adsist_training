@@ -51,4 +51,12 @@ class Campaign extends Model
     {
         return $this->hasMany(Adset::class);
     }
+
+    /**
+     * Get rendered adsets of campaign.
+     */
+    public function renderedAdsets(): HasMany
+    {
+        return $this->hasMany(Adset::class)->rendered();
+    }
 }

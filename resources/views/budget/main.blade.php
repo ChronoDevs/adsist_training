@@ -51,7 +51,7 @@
         </div>
         <div class="head_block">
         <div class="container list_head">
-            <a class="btn btn_wide btn_red btn_chat mb40" href="{{ route('campaign.budget_form') }}" id="addBudget">
+            <a class="btn btn_wide btn_red btn_chat mb40" href="{{ route('campaign.budget_form', ['page' => request('page')]) }}" id="addBudget">
             +予算を追加する
             </a>
             <div class="flex">
@@ -93,6 +93,9 @@
                 媒体名
             </div>
             <div class="col">
+                Service Name
+            </div>
+            <div class="col">
                 金額
             </div>
             <div class="col">
@@ -105,90 +108,26 @@
                 &nbsp;
             </div>
             </div><!--table_head-->
-            <div class="item_block flex">
-            <div class="col brand_name">Facebook</div>
-            <div class="col price">¥300,000</div>
-            <div class="col date">2019/00/00<span class="sp">&nbsp;追加</span></div>
-            <div class="col digest"><span class="sp">消化率&nbsp;</span>30%</div>
-            <div class="col btn_more">
-                <a href="../advertisement/detail/index.html" class="btn btn_red">詳細を見る</a>
-            </div>
-            </div>
-            <div class="item_block flex">
-            <div class="col brand_name">Instagram</div>
-            <div class="col price">¥300,000</div>
-            <div class="col date">2019/00/00<span class="sp">&nbsp;追加</span></div>
-            <div class="col digest"><span class="sp">消化率&nbsp;</span>30%</div>
-            <div class="col btn_more">
-                <a href="../advertisement/detail/index.html" class="btn btn_red">詳細を見る</a>
-            </div>
-            </div>
-            <div class="item_block flex">
-            <div class="col brand_name">Facebook</div>
-            <div class="col price">¥300,000</div>
-            <div class="col date">2019/00/00<span class="sp">&nbsp;追加</span></div>
-            <div class="col digest"><span class="sp">消化率&nbsp;</span>30%</div>
-            <div class="col btn_more">
-                <a href="../advertisement/index.html" class="btn btn_red">詳細を見る</a>
-            </div>
-            </div>
-            <div class="item_block flex">
-            <div class="col brand_name">Facebook</div>
-            <div class="col price">¥300,000</div>
-            <div class="col date">2019/00/00<span class="sp">&nbsp;追加</span></div>
-            <div class="col digest"><span class="sp">消化率&nbsp;</span>30%</div>
-            <div class="col btn_more">
-                <a href="../advertisement/index.html" class="btn btn_red">詳細を見る</a>
-            </div>
-            </div>
-            <div class="item_block flex">
-            <div class="col brand_name">Facebook</div>
-            <div class="col price">¥300,000</div>
-            <div class="col date">2019/00/00<span class="sp">&nbsp;追加</span></div>
-            <div class="col digest"><span class="sp">消化率&nbsp;</span>30%</div>
-            <div class="col btn_more">
-                <a href="../advertisement/index.html" class="btn btn_red">詳細を見る</a>
-            </div>
-            </div>
-            <div class="item_block flex">
-            <div class="col brand_name">Facebook</div>
-            <div class="col price">¥300,000</div>
-            <div class="col date">2019/00/00<span class="sp">&nbsp;追加</span></div>
-            <div class="col digest"><span class="sp">消化率&nbsp;</span>30%</div>
-            <div class="col btn_more">
-                <a href="../advertisement/index.html" class="btn btn_red">詳細を見る</a>
-            </div>
-            </div>
-            <div class="item_block flex">
-            <div class="col brand_name">Facebook</div>
-            <div class="col price">¥300,000</div>
-            <div class="col date">2019/00/00<span class="sp">&nbsp;追加</span></div>
-            <div class="col digest"><span class="sp">消化率&nbsp;</span>30%</div>
-            <div class="col btn_more">
-                <a href="../advertisement/index.html" class="btn btn_red">詳細を見る</a>
-            </div>
-            </div>
-            <div class="item_block flex">
-            <div class="col brand_name">Facebook</div>
-            <div class="col price">¥300,000</div>
-            <div class="col date">2019/00/00<span class="sp">&nbsp;追加</span></div>
-            <div class="col digest"><span class="sp">消化率&nbsp;</span>30%</div>
-            <div class="col btn_more">
-                <a href="../advertisement/index.html" class="btn btn_red">詳細を見る</a>
-            </div>
-            </div>
+            @isset($campaigns)
+                @foreach ($campaigns as $campaign)
+                    <div class="item_block flex">
+                        <div class="col brand_name">{{ $campaign->social_platform->name }}</div>
+                        <div class="col brand_name">{{ $campaign->name }}</div>
+                        <div class="col price">¥{{ $campaign->budget }}</div>
+                        <div class="col date">{{ date( "m/d/Y", strtotime($campaign->created_at)) }}<span class="sp">&nbsp;追加</span></div>
+                        <div class="col digest">
+                            <span class="sp">消化率&nbsp;</span>
+                            {{ floor((($campaign->daily_budget * $campaign->renderedAdsets->sum('days')) / $campaign->budget) * 100) }}%
+                        </div>
+                        <div class="col btn_more">
+                            <a href="../advertisement/detail/index.html" class="btn btn_red">詳細を見る</a>
+                        </div>
+                    </div>
+                @endforeach
+            @endisset
         </div><!--container END-->
         </div><!--content_block END-->
-        <!-- ページャー -->
-        <ul class="pager flex_box">
-        <li class="tostart_btn"><a href=""><img src="{{ asset('/img/arrow_left_double.png') }}"></a></li>
-        <li class="prevbtn"><a href=""><img src="{{ asset('/img/arrow_left_g.png') }}"><span>前へ</span></a></li>
-        <li class="current"><a class="futura" href="">3</a></li>
-        <li><a class="futura" href="">4</a></li>
-        <li><a class="futura" href="">5</a></li>
-        <li class="nextbtn"><a href=""><span>次へ</span><img src="{{ asset('/img/arrow_right_g.png') }}"></a></li>
-        <li class="toend_btn"><a href=""><img src="{{ asset('/img/arrow_right_double.png') }}"></a></li>
-        </ul>
+        {{ $campaigns->links('vendor.pagination.custom') }}
     </div><!-- END maincont -->
 @endsection
 
@@ -236,7 +175,7 @@
     <div id="myModal" class="{{ Route::current()->getName() === 'campaign.budget_form'? 'modal' : 'modal_none' }}">
         <!-- Modal content -->
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <a href="{{ route('campaign.main', ['page' => request('page')]) }}"><span class="close">&times;</span></a>
             <div class="content_block none_bg">
                 @if(Session::has('success'))
                     <span>{{ Session::get('success') }}</span>
@@ -296,7 +235,7 @@
                     </dd>
                 </dl>
                 <div class="btn_area">
-                    <a class="btn btn_gray" href="{{ route('campaign.main') }}">Cancel</a>
+                    <a class="btn btn_gray" href="{{ route('campaign.main', ['page' => request('page')]) }}">Cancel</a>
                     <button class="btn btn_red" type="submit">Add</button>
                 </div>
                 </form>
@@ -310,5 +249,4 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="{{ asset('/js/common.js') }}"></script>
     <script src="{{ asset('/js/sort.js') }}"></script>
-    <script src="{{ asset('/js/modal.js') }}"></script>
 @endsection
