@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use App\Models\Ad;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\DB;
 
 class Adset extends Model
 {
@@ -49,11 +50,13 @@ class Adset extends Model
     }
 
     /**
-     * Get active adset.
+     * Get rendered adset with custom column 'days'.
      */
     public function scopeRendered(Builder $query): void
     {
         $today = Carbon::today();
-        $query->where('start_date', '<=', $today);
+        $query->where('start_date', '<=', $today)
+            ->select('*', DB::raw('(CASE WHEN end_date <= CURRENT_DATE() THEN DATEDIFF(end_date, start_date)
+            ELSE DATEDIFF(CURRENT_DATE(), start_date) END) as days'));
     }
 }

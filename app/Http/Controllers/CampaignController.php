@@ -7,7 +7,6 @@ use App\Models\Campaign;
 use App\Models\SocialPlatform;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class CampaignController extends Controller
 {
@@ -22,13 +21,8 @@ class CampaignController extends Controller
         $userId = Auth::user()->id;
         $campaigns = Campaign::whereHas('user', function(Builder $query) use ($userId) {
                         $query->where('id', $userId);
-                    })->with(['renderedAdsets' => function ($query) {
-                        $query->select(
-                            'id',
-                            'campaign_id',
-                            DB::raw('(CASE WHEN end_date <= CURRENT_DATE() THEN DATEDIFF(end_date, start_date)
-                            ELSE DATEDIFF(CURRENT_DATE(), start_date) END) as days'));
-                    }])->paginate($noItems);
+                    })->with(['renderedAdsets'])
+                    ->paginate($noItems);
 
         return $campaigns;
     }
