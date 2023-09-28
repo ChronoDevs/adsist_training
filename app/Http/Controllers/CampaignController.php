@@ -18,7 +18,7 @@ class CampaignController extends Controller
      */
     public function campaignPaginate()
     {
-        $noItems = 2;
+        $noItems = config('const.paginate_item.campaign');
         $userId = Auth::user()->id;
         $campaigns = Campaign::whereHas('user', function(Builder $query) use ($userId) {
                         $query->where('id', $userId);
