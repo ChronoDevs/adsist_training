@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\InquiryController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OAuthController;
@@ -25,7 +26,7 @@ use App\Http\Controllers\ProfileController;
 Route::middleware('auth')->group(function () {
     Route::get('/', function () {
         return view('welcome');
-    })->name('dashboard');
+    })->name('welcome');
 
     /*Profile information route*/
     Route::get('/profile-info', [ProfileController::class, 'showProfile'])->name('profile.show');
@@ -41,6 +42,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/campaign-budget', [CampaignController::class, 'showMain'])->name('campaign.main');
     Route::get('/campaign-budget/form', [CampaignController::class, 'showBudgetForm'])->name('campaign.budget_form');
     Route::post('/campaign-budget/form', [CampaignController::class, 'addBudget'])->name('campaign.add_budget');
+    // Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
 
 Route::middleware('guest')->group(function () {

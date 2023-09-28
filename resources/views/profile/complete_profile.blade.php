@@ -8,7 +8,7 @@
 @section('head_icon_link', '../img/###.png')
 @section('header_class', 'header_dashboard')
 @section('main_id', 'page_dashboard')
-@section('main_class', 'under account confirm')
+@section('main_class', '')
 @section('main_cont_class', 'dashboard_cont flex_box')
 
 @section('header_content')
