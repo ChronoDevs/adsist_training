@@ -2,7 +2,7 @@
     <div id="sidebar">
         <ul>
         <li class="sdlink_dashboard">
-            <a href="../dashboard/index.html"><img src="../img/icon_graph_w.png">ダッシュボード</a>
+            <a href="{{ route('dashboard') }}"><img src="../img/icon_graph_w.png">ダッシュボード</a>
         </li>
         <li class="sdlink_budgetmanage">
             <a href="../budget/index.html"><img src="../img/icon_yen_w.png">予算管理</a>

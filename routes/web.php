@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\InquiryController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OAuthController;
@@ -24,7 +25,7 @@ use App\Http\Controllers\ProfileController;
 Route::middleware('auth')->group(function () {
     Route::get('/', function () {
         return view('welcome');
-    })->name('dashboard');
+    })->name('welcome');
 
     /*Profile information route*/
     Route::get('/profile-info', [ProfileController::class, 'showProfile'])->name('profile.show');
@@ -35,6 +36,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/change-password', [PasswordController::class, 'showChangePasswordForm'])->name('profile.show_password_form');
     Route::post('/change-password', [PasswordController::class, 'changePassword'])->name('profile.change_password');
     Route::get('/change-password/complete', [PasswordController::class, 'completedPasswordChange'])->name('profile.change_password_complete');
+
+    // Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
 
 Route::middleware('guest')->group(function () {
